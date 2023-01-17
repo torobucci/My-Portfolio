@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Crete Round");
 @import url("https://fonts.googleapis.com/css2?family=Inter");
 @import url("https://fonts.googleapis.com/css2?family=InaiMathi");
+@import url("https://fonts.googleapis.com/css2?family=cyrillic Roboto");
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
 
 body {
   margin: 0;
@@ -12,6 +14,10 @@ body {
 main {
   background: white;
   width: 100%;
+}
+
+h1 {
+  font-weight: 100;
 }
 
 h1,
@@ -26,6 +32,103 @@ a {
 li {
   list-style-type: none;
 }
+
+/* Header */
+.header {
+  background: #3c3a39;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.header-p {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.header a {
+  color: #fff;
+}
+
+.fa-bars-icon {
+  font-size: 18px;
+  color: #fff;
+}
+
+.headline-section {
+  background-color: black;
+  padding: 8rem 1.25rem 6rem;
+  background-image: url("./images/background-image.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  gap: 0;
+}
+
+.primary-text {
+  font-family: "Crete Round", cursive;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 64px;
+  letter-spacing: 0.37px;
+  color: #ff6b00;
+}
+
+.supporting-text {
+  margin-top: -10px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.description {
+  font-family: "Poppins", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.social-media {
+  margin-top: -20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.social-media ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+/* no-descending specificity rule */
+.tags1 li {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.tags1 li a {
+  color: #fff;
+}
+
+.social-media ul li {
+  margin-right: 12px;
+}
+
 
 /* Work Section */
 .title {
@@ -73,7 +176,7 @@ li {
   margin-bottom: 0;
 }
 
-.supporting-text {
+.supporting-text1 {
   font-family: "Inter", serif;
   font-style: normal;
   font-weight: 400;
@@ -195,7 +298,7 @@ li {
   color: #fff;
 }
 
-.supporting-text1 {
+.supporting-text2 {
   font-family: "Inter", serif;
   font-style: normal;
   font-weight: 400;
@@ -227,14 +330,6 @@ li {
   border: none;
 }
 
-.tags1 li {
-  background: rgba(255, 255, 255, 0.24);
-}
-
-.tags1 li a {
-  color: #fff;
-}
-
 #last {
   margin-bottom: 150px;
 }
@@ -257,7 +352,7 @@ li {
   background-position-y: 100%;
 }
 
-.about-me-div h1 {
+.about-me-div h2 {
   font-family: "Crete Round", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -337,7 +432,7 @@ li {
   position: absolute;
   transform: rotate(45deg);
   top: 0.5em;
-  left: 0.5em;
+  left: 0.1em;
   text-align: center;
 }
 
@@ -384,7 +479,7 @@ li {
   display: block;
   position: absolute;
   top: 0.5em;
-  left: 1.2em;
+  left: -0.6em;
   text-align: center;
   border-radius: 50%;
 }
