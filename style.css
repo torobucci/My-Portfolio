@@ -34,7 +34,7 @@ li {
 }
 
 /* Header */
-.header {
+header {
   background: #3c3a39;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@ li {
   padding: 1rem;
 }
 
-.header-p {
+header a {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -51,11 +51,7 @@ li {
   color: #fff;
 }
 
-.header a {
-  color: #fff;
-}
-
-.fa-bars-icon {
+.fa-bars {
   font-size: 18px;
   color: #fff;
 }
@@ -63,7 +59,7 @@ li {
 .headline-section {
   background-color: black;
   padding: 8rem 1.25rem 6rem;
-  background-image: url("./images/background-image.svg");
+  background-image: url("./images/Illustration.png");
   background-repeat: no-repeat;
   background-position: bottom right;
 }
