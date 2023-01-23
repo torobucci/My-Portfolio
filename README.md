@@ -112,14 +112,8 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-sh gem install rails
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+Code editor eg. VScode
+Web browser eg. chrome
 
 ### Setup
 
@@ -136,60 +130,20 @@ Example commands:
   git clone git@github.com:myaccount/my-project.git
 ```
 --->
-
 ### Install
+To install linter run the following command:
 
-Install this project with:
-sh
-  cd portfolio-first-project
-  gem install
-<!--
-Example command:
-
-``sh
-  cd my-project
-  gem install
-```
---->
+npm install --save-dev hint@7.x   
 
 ### Usage
 
-To run the project, execute the following command:
-
-sh rails server
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
+To run the project click the run button on your VScode.
 
 ### Run tests
 
 To run tests, run the following command:
 
-sh bin/rails test test/models/article_test.rb
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-sh
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+npx stylelint "**/*.{css,scss}"    
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
