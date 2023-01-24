@@ -784,7 +784,7 @@ textarea:focus {
 
   .grid-container1 {
     display: grid;
-    grid-template-columns: 362px 362px 362px;
+    grid-template-columns: 364px 364px 364px;
     align-items: center;
     gap: 10px;
     max-width: fit-content;
