@@ -659,7 +659,13 @@ textarea {
   background: #fbf8f7;
 }
 
-input:hover,textarea:hover{
+input,
+textarea:focus {
+  outline: none;
+}
+
+input:hover,
+textarea:hover {
   transform: translate(20px);
 }
 
@@ -701,11 +707,6 @@ footer {
   border-radius: 10px;
   margin: 0 auto;
   margin-bottom: 8px;
-}
-
-input,
-textarea:focus {
-  outline: none;
 }
 
 @media screen and (min-width: 768px) {
