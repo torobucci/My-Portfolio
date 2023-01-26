@@ -55,6 +55,12 @@ header a {
   font-size: 18px;
   color: #fff;
   margin-right: 0;
+  transition: all 0.5s linear;
+}
+
+.fa-bars:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
 }
 
 .desktop-header-nav {
@@ -267,6 +273,7 @@ header a {
   color: #fff;
   background: #ff6b00;
   border: none;
+  transition: all 5s ease 0.25s;
 }
 
 .grid-container {
@@ -281,6 +288,10 @@ header a {
   background-repeat: no-repeat;
   background-size: cover;
   border: 1px solid white;
+}
+
+.card-works:hover {
+  transform: scale(1.02);
 }
 
 .grid-container1 {
@@ -309,12 +320,11 @@ header a {
   background: #ff6b00;
   height: 48px;
   border: none;
+  transition: background-color, color 3s ease 0.25s;
 }
 
 .card-works1 {
   background: linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%), url("./images-desktop/card-works1.png");
-
-  /* background-image: url("./images-desktop/card-works1.png"); */
   background-repeat: no-repeat;
   background-size: cover;
   width: 350px;
@@ -345,6 +355,7 @@ header a {
 .card-works1:hover {
   cursor: grab;
   background-image: url("./images-desktop/card-works1.png");
+  transform: scale(1.05);
 }
 
 .card-works1:hover .frame43-right-block {
@@ -374,6 +385,7 @@ header a {
 
 .card-works2:hover {
   cursor: grab;
+  transform: scale(1.05);
 }
 
 .card-works2:hover .see-project-btn1 {
@@ -391,6 +403,7 @@ header a {
 
 .card-works3:hover {
   cursor: grab;
+  transform: scale(1.05);
 }
 
 .card-works3:hover .frame43-right-block {
@@ -473,13 +486,13 @@ header a {
 }
 
 .get-my-resume {
-  padding: 12px;
   gap: 10px;
   width: 131px;
   height: 36px;
   color: #fff;
   background: #ff6b00;
   border: none;
+  transition: all 5s ease 0.25s;
 }
 
 .divider {
@@ -646,6 +659,16 @@ textarea {
   background: #fbf8f7;
 }
 
+input,
+textarea:focus {
+  outline: none;
+}
+
+input:hover,
+textarea:hover {
+  transform: translate(20px);
+}
+
 .get-in-touch {
   width: 50%;
   margin-left: 25%;
@@ -658,6 +681,7 @@ textarea {
   font-size: 15px;
   line-height: 24px;
   padding: 10px;
+  transition: all 5s ease 0.25s;
 }
 
 footer {
@@ -683,11 +707,6 @@ footer {
   border-radius: 10px;
   margin: 0 auto;
   margin-bottom: 8px;
-}
-
-input,
-textarea:focus {
-  outline: none;
 }
 
 @media screen and (min-width: 768px) {
