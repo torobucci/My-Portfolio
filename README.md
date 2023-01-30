@@ -59,8 +59,6 @@ After you're finished please remove all the comments and instructions!
 # 📖 [Portfolio: finish mobile version] <a name="about-project">
 </a>
 
-> Describe your project in 1 or 2 sentences.
-
 **[Portfolio: finish mobile version]** is a project that adds about my recent works and about me to my portfolio
 
 ## 🛠 Built With <a name="built-with">
@@ -69,8 +67,6 @@ After you're finished please remove all the comments and instructions!
 </a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -82,11 +78,10 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[My recent works into]**
+- **[My recent works intro]**
 - **[Recent works]**
 - **[About me section]**
+- **[Animations and transitions on buttons and project cards]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,19 +89,16 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link]([(https://github.com/torobucci/Portfolio-finish-mobile-version)])
+- [Live Demo Link] (https://torobucci.github.io/Portfolio-finish-mobile-version/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
- 
 To get a local copy up and running, follow these steps.
+
+fork the repository https://github.com/torobucci/Portfolio-finish-mobile-version on github
 
 ### Prerequisites
 
@@ -151,8 +143,6 @@ npx stylelint "**/*.{css,scss}"
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Author1**
 
 - GitHub: [@torobucii](https://github.com/torobucii)
@@ -170,8 +160,6 @@ npx stylelint "**/*.{css,scss}"
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **[Display of my sample works]**
 - [ ] **[About me]**
@@ -193,8 +181,6 @@ Feel free to check the [Hello-world issues](https/Hello-world/hello-world-issues
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project hit the star button on our github repo
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -202,8 +188,6 @@ If you like this project hit the star button on our github repo
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank the Lets Code team that hepled us in every problem we had.
 
@@ -214,6 +198,6 @@ I would like to thank the Lets Code team that hepled us in every problem we had.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/torobucci/Portfolio-finish-mobile-version/blob/feature-branch/MIT-LICENSE.txt) licensed.
+This project is [MIT](https://github.com/torobucci/Portfolio-finish-mobile-version/blob/main/MIT-LICENSE.txt) licensed.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
