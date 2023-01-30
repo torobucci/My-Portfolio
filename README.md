@@ -89,7 +89,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link] (https://torobucci.github.io/Portfolio-finish-mobile-version/)
+- [Live Demo Link](https://torobucci.github.io/Portfolio-finish-mobile-version/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
