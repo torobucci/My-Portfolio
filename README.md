@@ -59,7 +59,8 @@ After you're finished please remove all the comments and instructions!
 # 📖 [Portfolio: finish mobile version] <a name="about-project">
 </a>
 
-**[Portfolio: finish mobile version]** is a project that adds about my recent works and about me to my portfolio
+**[Portfolio: finish mobile version]** is a project that adds about my recent works and about me to my portfolio.
+Here is a walkthrough [video](https://www.loom.com/share/f62ba52796aa44efa5656eefbec33875) about the project
 
 ## 🛠 Built With <a name="built-with">
     Html
