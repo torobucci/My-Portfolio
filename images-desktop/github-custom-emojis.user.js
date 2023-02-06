@@ -22,80 +22,78 @@
 // @downloadURL https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/github-custom-emojis.user.js
 // ==/UserScript==
 /* global jQuery */
-(function($) {
-  'use strict';
-
+(function ($) {
   const ghe = {
 
-    version : GM_info.script.version,
+    version: GM_info.script.version,
 
-    vars : {
+    vars: {
       // delay until package.json allowed to load
-      delay : 8.64e7, // 24 hours in milliseconds
+      delay: 8.64e7, // 24 hours in milliseconds
 
       // base url to fetch package.json
-      root : 'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/',
-      emojiClass : 'ghe-custom-emoji',
-      emojiTxtTemplate : '~${name}',
-      emojiImgTemplate : ':_${name}:',
-      maxEmojiZoom : 3,
-      maxEmojiHeight : 150,
+      root: 'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/',
+      emojiClass: 'ghe-custom-emoji',
+      emojiTxtTemplate: '~${name}',
+      emojiImgTemplate: ':_${name}:',
+      maxEmojiZoom: 3,
+      maxEmojiHeight: 150,
 
       // Keyboard shortcut to open panel
-      keyboardOpen : 'g+=',
-      keyboardDelay : 1000
+      keyboardOpen: 'g+=',
+      keyboardDelay: 1000,
     },
 
-    regex : {
+    regex: {
       // nodes to skip while traversing the dom
-      skipElm    : /^(script|style|svg|iframe|br|meta|link|textarea|input|code|pre)$/i,
+      skipElm: /^(script|style|svg|iframe|br|meta|link|textarea|input|code|pre)$/i,
       // emoji template
-      template   : /\$\{name\}/,
+      template: /\$\{name\}/,
       // character to escape in regex
-      charsToEsc : /[-/\\^$*+?.()|[\]{}]/g
+      charsToEsc: /[-/\\^$*+?.()|[\]{}]/g,
     },
 
-    defaults : {
-      activeZoom    : 1.8,
-      caseSensitive : false,
-      rangeHeight   : '20;40', // min;max as set by ion.rangeSlider
-      insertAsImage : false,
+    defaults: {
+      activeZoom: 1.8,
+      caseSensitive: false,
+      rangeHeight: '20;40', // min;max as set by ion.rangeSlider
+      insertAsImage: false,
       // emoji json sources
-      sources : [
+      sources: [
         'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/collections/emoji-custom.json',
         'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/collections/emoji-crazy-rabbit.json',
         'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/collections/emoji-onion-head.json',
         'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/collections/emoji-unicode.json',
-        'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/collections/emoji-custom-text.json'
-      ]
+        'https://raw.githubusercontent.com/StylishThemes/GitHub-Custom-Emojis/master/collections/emoji-custom-text.json',
+      ],
     },
 
     // emoji json stored here
-    collections : {},
+    collections: {},
 
     // GitHub ajax containers
-    containers : [
+    containers: [
       '#js-pjax-container',
       '#js-repo-pjax-container',
       '.js-contribution-activity',
       '.more-repos', // loading "more" of "Your repositories"
       '#dashboard .news', // loading "more" news
-      '.js-preview-body' // comment previews
+      '.js-preview-body', // comment previews
     ],
 
     // promises used when loading JSON
-    promises : {},
+    promises: {},
 
-    getStoredValues : function() {
-      const defaults = this.defaults;
+    getStoredValues() {
+      const { defaults } = this;
       this.settings = {
-        rangeHeight   : GM_getValue('rangeHeight',   defaults.rangeHeight),
-        activeZoom    : GM_getValue('activeZoom',    defaults.activeZoom),
-        caseSensitive : GM_getValue('caseSensitive', defaults.caseSensitive),
-        insertAsImage : GM_getValue('insertAsImage', defaults.insertAsImage),
-        sources       : GM_getValue('sources',       defaults.sources),
+        rangeHeight: GM_getValue('rangeHeight', defaults.rangeHeight),
+        activeZoom: GM_getValue('activeZoom', defaults.activeZoom),
+        caseSensitive: GM_getValue('caseSensitive', defaults.caseSensitive),
+        insertAsImage: GM_getValue('insertAsImage', defaults.insertAsImage),
+        sources: GM_getValue('sources', defaults.sources),
 
-        date          : GM_getValue('date', 0)
+        date: GM_getValue('date', 0),
       };
 
       this.collections = GM_getValue('collections', {});
@@ -103,9 +101,9 @@
       debug('Retrieved stored values & collections', this.settings, this.collections);
     },
 
-    storeVal : function(key, set, $el) {
-      let tmp,
-        val = set[key];
+    storeVal(key, set, $el) {
+      let tmp;
+      const val = set[key];
       GM_setValue(key, val);
       if (typeof val === 'boolean') {
         $el.prop('checked', val);
@@ -117,26 +115,27 @@
         tmp = val.split(';');
         $el.data('ionRangeSlider').update({
           from: tmp[0],
-          to: tmp[1]
+          to: tmp[1],
         });
       } else if ($el.hasClass('ghe-zoom')) {
         $el.data('ionRangeSlider').update({
-          from: val
+          from: val,
         });
       }
     },
 
-    setStoredValues : function(reset) {
-      let $el, tmp, len, indx;
-      const s = ghe.settings,
-        d = ghe.defaults,
-        $panel = $('#ghe-settings-inner');
+    setStoredValues(reset) {
+      let $el; let tmp; let len; let
+        indx;
+      const s = ghe.settings;
+      const d = ghe.defaults;
+      const $panel = $('#ghe-settings-inner');
 
       ghe.busy = true;
       ghe.storeVal('caseSensitive', reset ? d : s, $panel.find('.ghe-case'));
       ghe.storeVal('insertAsImage', reset ? d : s, $panel.find('.ghe-image'));
-      ghe.storeVal('activeZoom',    reset ? d : s, $panel.find('.ghe-zoom'));
-      ghe.storeVal('rangeHeight',   reset ? d : s, $panel.find('.ghe-height'));
+      ghe.storeVal('activeZoom', reset ? d : s, $panel.find('.ghe-zoom'));
+      ghe.storeVal('rangeHeight', reset ? d : s, $panel.find('.ghe-height'));
 
       GM_setValue('collections', this.collections);
       GM_setValue('date', s.date);
@@ -172,7 +171,7 @@
         ghe.showFileName($el);
       }
       // remove extras
-      $panel.find('.ghe-source').filter(':gt(' + len + ')').remove();
+      $panel.find('.ghe-source').filter(`:gt(${len})`).remove();
       if (reset) {
         this.updateSettings();
       }
@@ -181,19 +180,19 @@
         // most up-to-date collection data
         $('.comment-form-textarea').atwho('destroy');
       }
-      debug((reset ? 'Resetting' : 'Saving') + ' current values & updating panel', s);
+      debug(`${reset ? 'Resetting' : 'Saving'} current values & updating panel`, s);
       ghe.busy = false;
     },
 
-    updateSettings : function() {
+    updateSettings() {
       this.isUpdating = true;
-      const settings = this.settings,
-        $panel = $('#ghe-settings-inner');
-      settings.rangeHeight   = $panel.find('.ghe-height').val();
-      settings.activeZoom    = $panel.find('.ghe-zoom').val();
+      const { settings } = this;
+      const $panel = $('#ghe-settings-inner');
+      settings.rangeHeight = $panel.find('.ghe-height').val();
+      settings.activeZoom = $panel.find('.ghe-zoom').val();
       settings.insertAsImage = $panel.find('.ghe-image').is(':checked');
       settings.caseSensitive = $panel.find('.ghe-case').is(':checked');
-      settings.sources = $panel.find('.ghe-source-input').map(function() {
+      settings.sources = $panel.find('.ghe-source-input').map(function () {
         return $(this).attr('data-url');
       }).get();
 
@@ -205,17 +204,17 @@
       this.isUpdating = false;
     },
 
-    loadEmojiJson : function(update) {
+    loadEmojiJson(update) {
       // only load emoji.json once a day, or after a forced update
       if (update || (new Date().getTime() > this.settings.date + this.vars.delay)) {
         let indx;
-        const promises = [],
-          sources = this.settings.sources,
-          len = sources.length;
+        const promises = [];
+        const { sources } = this.settings;
+        const len = sources.length;
         for (indx = 0; indx < len; indx++) {
           promises[promises.length] = this.fetchCustomEmojis(sources[indx]);
         }
-        $.when.apply(null, promises).done(function() {
+        $.when.apply(null, promises).done(() => {
           ghe.checkPage();
           ghe.promises = [];
           ghe.settings.date = new Date().getTime();
@@ -225,14 +224,14 @@
       }
     },
 
-    fetchCustomEmojis : function(url) {
+    fetchCustomEmojis(url) {
       if (!this.promises[url]) {
-        this.promises[url] = $.Deferred(function(defer) {
+        this.promises[url] = $.Deferred((defer) => {
           debug('Fetching custom emoji list', url);
           GM_xmlhttpRequest({
-            method : 'GET',
-            url : url,
-            onload : response => {
+            method: 'GET',
+            url,
+            onload: (response) => {
               let json = false;
               try {
                 json = JSON.parse(response.responseText);
@@ -244,10 +243,10 @@
                 // save url to make removing the entry easier
                 json[0].url = url;
                 ghe.collections[json[0].name] = json;
-                debug('Adding "' + json[0].name + '" Emoji Collection');
+                debug(`Adding "${json[0].name}" Emoji Collection`);
               }
               return defer.resolve();
-            }
+            },
           });
         }).promise();
       }
@@ -257,16 +256,16 @@
     // Using: document.evaluate('//*[text()[contains(.,":_")]]', document.body, null,
     //   XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotItem(0);
     // to find matching content as it is much faster than scanning each node
-    checkPage : function() {
+    checkPage() {
       this.isUpdating = true;
-      let node,
-        indx = 0;
-      const parts = this.vars.emojiImgTemplate.split('${name}'), // parts = [':_', ':']
-        // adding "//" starts from document, so if node is defined, don't
-        // include it so the search starts from the node
-        path = '//*[text()[contains(.,"' + parts[0] + '")]]',
-        nodes = document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null),
-        len = nodes.snapshotLength;
+      let node;
+      let indx = 0;
+      const parts = this.vars.emojiImgTemplate.split('${name}'); // parts = [':_', ':']
+      // adding "//" starts from document, so if node is defined, don't
+      // include it so the search starts from the node
+      const path = `//*[text()[contains(.,"${parts[0]}")]]`;
+      const nodes = document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const len = nodes.snapshotLength;
       try {
         node = nodes.snapshotItem(indx);
         while (node && indx++ < len) {
@@ -281,12 +280,13 @@
       this.isUpdating = false;
     },
 
-    findEmoji : function(node) {
-      let indx, len, group, match, matchesLen, name;
-      const regex = ghe.regex.nameRegex,
-        matches = [],
-        emojis = this.collections,
-        str = node.textContent;
+    findEmoji(node) {
+      let indx; let len; let group; let match; let matchesLen; let
+        name;
+      const regex = ghe.regex.nameRegex;
+      const matches = [];
+      const emojis = this.collections;
+      const str = node.textContent;
       while ((match = regex.exec(str)) !== null) {
         matches[matches.length] = match[1];
       }
@@ -300,7 +300,7 @@
               name = emojis[group][indx].name;
               for (match = 0; match < matchesLen; match++) {
                 if (name === matches[match]) {
-                  debug('found "' + matches[match] + '" in "' + node.textContent + '"');
+                  debug(`found "${matches[match]}" in "${node.textContent}"`);
                   ghe.replaceText(node, emojis[group][indx]);
                 }
               }
@@ -310,10 +310,10 @@
       }
     },
 
-    replaceText : function(node, emoji) {
-      let i, data, pos, imgnode, middlebit,
-        name = this.vars.emojiImgTemplate.replace(ghe.regex.template, emoji.name),
-        skip = 0;
+    replaceText(node, emoji) {
+      let i; let data; let pos; let imgnode; let middlebit;
+      let name = this.vars.emojiImgTemplate.replace(ghe.regex.template, emoji.name);
+      let skip = 0;
       const isCased = this.settings.caseSensitive;
       name = isCased ? name : name.toUpperCase();
       // Code modified from highlight-5 (MIT license)
@@ -339,27 +339,27 @@
     // This function does the surrounding for every matched piece of text
     // and can be customized  to do what you like
     // <img class="emoji" title=":smile:" alt=":smile:" src="x.png" height="20" width="20" align="absmiddle">
-    createEmoji : function(emoji) {
+    createEmoji(emoji) {
       const el = document.createElement('img');
       el.src = emoji.url;
-      el.className = ghe.vars.emojiClass + ' emoji';
+      el.className = `${ghe.vars.emojiClass} emoji`;
       el.title = el.alt = ghe.vars.emojiImgTemplate.replace(ghe.regex.template, emoji.name);
       // el.align = 'absmiddle'; // deprecated attribute
       return el;
     },
 
     // used by autocomplete (atwho) filter function
-    matches : function(query, labels) {
+    matches(query, labels) {
       if (query === '') {
         return 1;
       }
       labels = labels || '';
-      let i, partial,
-        count = 0;
-      const isCS = this.settings.caseSensitive,
-        arry = (isCS ? labels : labels.toUpperCase()).split(/[\s,_]+/),
-        parts = (isCS ? query : query.toUpperCase()).split(/[,_]/),
-        len = parts.length;
+      let i; let partial;
+      let count = 0;
+      const isCS = this.settings.caseSensitive;
+      const arry = (isCS ? labels : labels.toUpperCase()).split(/[\s,_]+/);
+      const parts = (isCS ? query : query.toUpperCase()).split(/[,_]/);
+      const len = parts.length;
       for (i = 0; i < len; i++) {
         // full match or partial
         partial = arry.join('_').indexOf(parts.join('_'));
@@ -375,16 +375,16 @@
       return count / len;
     },
 
-    emojiSort : function(a, b) {
+    emojiSort(a, b) {
       return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
     },
 
     // init when comment textarea is focused
-    initAutocomplete : function($el) {
+    initAutocomplete($el) {
       if (!$el.data('atwho')) {
-        let indx, imgLen, txtLen, name, group,
-          text = [],
-          data = [];
+        let indx; let imgLen; let txtLen; let name; let group;
+        let text = [];
+        let data = [];
         // combine data
         for (name in ghe.collections) {
           if (ghe.collections.hasOwnProperty(name)) {
@@ -402,35 +402,35 @@
           data = data.sort(ghe.emojiSort);
           // add prepend name to labels
           for (indx = 0; indx < imgLen; indx++) {
-            data[indx].labels = data[indx].name.replace(/_/g, ' ') + ' ' + data[indx].labels;
+            data[indx].labels = `${data[indx].name.replace(/_/g, ' ')} ${data[indx].labels}`;
           }
           // add emoji autocomplete to comment textareas
           $el.atwho({
             // first two characters from emojiImgTemplate
-            at : ghe.vars.emojiImgTemplate.split('${name}')[0],
-            data : data,
+            at: ghe.vars.emojiImgTemplate.split('${name}')[0],
+            data,
             searchKey: 'labels',
-            displayTpl : '<li><span><img src="${url}" height="30" /></span>${name}</li>',
-            insertTpl : ghe.vars.emojiImgTemplate,
-            delay : 400,
-            callbacks : {
-              matcher: function(flag, subtext) {
-                const regexp = ghe.regex.emojiImgFilter,
-                  match = regexp.exec(subtext);
+            displayTpl: '<li><span><img src="${url}" height="30" /></span>${name}</li>',
+            insertTpl: ghe.vars.emojiImgTemplate,
+            delay: 400,
+            callbacks: {
+              matcher(flag, subtext) {
+                const regexp = ghe.regex.emojiImgFilter;
+                const match = regexp.exec(subtext);
                 // this next line does some magic...
                 // for some reason, without it, moving the caret from "p" to "r" in
                 // ":_people,fear," opens & closes the popup with each letter typed
                 subtext.match(regexp);
                 if (match) {
                   return match[2] || match[1];
-                } else {
-                  return null;
                 }
+                return null;
               },
-              filter: function(query, data, searchKey) {
-                let i, item;
-                const len = data.length,
-                  _results = [];
+              filter(query, data, searchKey) {
+                let i; let
+                  item;
+                const len = data.length;
+                const _results = [];
                 for (i = 0; i < len; i++) {
                   item = data[i];
                   item.atwho_order = ghe.matches(query, item[searchKey]);
@@ -438,26 +438,25 @@
                     _results[_results.length] = item;
                   }
                 }
-                return query === '' ? _results : _results.sort(function(a, b) {
+                return query === '' ? _results : _results.sort((a, b) =>
                   // descending sort
-                  return b.atwho_order - a.atwho_order;
-                });
+                  b.atwho_order - a.atwho_order);
               },
-              sorter: function(query, items) {
+              sorter(query, items) {
                 // sorted by filter
                 return items;
               },
               // event parameter adding in atwho.js mod
-              beforeInsert: function(value, $li, event) {
+              beforeInsert(value, $li, event) {
                 if (event.shiftKey || ghe.settings.insertAsImage) {
                   // add image tag directly if shift is held
-                  return '<img title="' +
-                    ghe.vars.emojiImgTemplate.replace(ghe.regex.template, $li.text()) +
-                    '" src="' + $li.find('img').attr('src') + '">';
+                  return `<img title="${
+                    ghe.vars.emojiImgTemplate.replace(ghe.regex.template, $li.text())
+                  }" src="${$li.find('img').attr('src')}">`;
                 }
                 return value;
-              }
-            }
+              },
+            },
           });
         }
 
@@ -466,30 +465,30 @@
           // alphabetic sort
           text = text.sort(ghe.emojiSort);
           $el.atwho({
-            at : ghe.vars.emojiTxtTemplate.split('${name}')[0],
-            data : text,
+            at: ghe.vars.emojiTxtTemplate.split('${name}')[0],
+            data: text,
             searchKey: 'name',
             // add data-emoji because of Emoji-One Chrome extension adds
             // hidden text and an svg image inside the span
-            displayTpl : '<li data-emoji="${text}"><span class="ghe-text">${text}</span>${name}</li>',
-            insertTpl : ghe.vars.emojiTxtTemplate,
-            delay : 400,
-            callbacks : {
-              matcher: function(flag, subtext) {
-                const regexp = ghe.regex.emojiTxtFilter,
-                  match = regexp.exec(subtext);
+            displayTpl: '<li data-emoji="${text}"><span class="ghe-text">${text}</span>${name}</li>',
+            insertTpl: ghe.vars.emojiTxtTemplate,
+            delay: 400,
+            callbacks: {
+              matcher(flag, subtext) {
+                const regexp = ghe.regex.emojiTxtFilter;
+                const match = regexp.exec(subtext);
                 // this next line does some magic...
                 subtext.match(regexp);
                 if (match) {
                   return match[2] || match[1];
-                } else {
-                  return null;
                 }
+                return null;
               },
-              filter: function(query, data, searchKey) {
-                let i, item;
-                  const len = data.length,
-                  _results = [];
+              filter(query, data, searchKey) {
+                let i; let
+                  item;
+                const len = data.length;
+                const _results = [];
                 for (i = 0; i < len; i++) {
                   item = data[i];
                   item.atwho_order = ghe.matches(query, item[searchKey]);
@@ -497,20 +496,19 @@
                     _results[_results.length] = item;
                   }
                 }
-                return query === '' ? _results : _results.sort(function(a, b) {
+                return query === '' ? _results : _results.sort((a, b) =>
                   // descending sort
-                  return b.atwho_order - a.atwho_order;
-                });
+                  b.atwho_order - a.atwho_order);
               },
-              sorter: function(query, items) {
+              sorter(query, items) {
                 // sorted by filter
                 return items;
               },
               // event parameter adding in atwho.js mod
-              beforeInsert: function(value, $li) {
+              beforeInsert(value, $li) {
                 return $li.attr('data-emoji');
-              }
-            }
+              },
+            },
           });
         }
         // use classes from GitHub-Dark to make theme match GitHub-Dark
@@ -518,67 +516,68 @@
       }
     },
 
-    addToolbarIcon : function() {
+    addToolbarIcon() {
       // add Emoji setting icons
-      let indx, $el;
-      const $toolbars = $('.toolbar-commenting'),
-        len = $toolbars.length;
+      let indx; let
+        $el;
+      const $toolbars = $('.toolbar-commenting');
+      const len = $toolbars.length;
       for (indx = 0; indx < len; indx++) {
         $el = $toolbars.eq(indx);
         if (!$el.find('.ghe-settings-icon').length) {
           $el.prepend([
             '<button type="button" class="ghe-settings-open toolbar-item tooltipped tooltipped-n tooltipped-multiline" aria-label="Browse collections & Set Emojis Options" tabindex="-1">',
-              '<svg class="ghe-settings-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor">',
-                '<path d="M7.205 3.233c0 .952-.753 1.73-1.722 1.73-.953 0-1.707-.793-1.707-1.73 0-.937.762-1.73 1.707-1.73.97 0 1.73.793 1.73 1.73h-.008zm6.904 0c0 .952-.794 1.73-1.747 1.73-.95 0-1.722-.793-1.722-1.73 0-.937.795-1.73 1.73-1.73.938 0 1.747.793 1.747 1.73h-.008zM7.204 10.1v5.19c0 1.728 6.904 1.728 6.904 0V10.1M10.642 10.1v3.46"/>',
-                '<path d="M.878 8.777s3.167 1.893 8.002 1.92c4.365.02 8.135-1.92 8.135-1.92"/>',
-              '</svg>',
-            '</button>'
+            '<svg class="ghe-settings-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor">',
+            '<path d="M7.205 3.233c0 .952-.753 1.73-1.722 1.73-.953 0-1.707-.793-1.707-1.73 0-.937.762-1.73 1.707-1.73.97 0 1.73.793 1.73 1.73h-.008zm6.904 0c0 .952-.794 1.73-1.747 1.73-.95 0-1.722-.793-1.722-1.73 0-.937.795-1.73 1.73-1.73.938 0 1.747.793 1.747 1.73h-.008zM7.204 10.1v5.19c0 1.728 6.904 1.728 6.904 0V10.1M10.642 10.1v3.46"/>',
+            '<path d="M.878 8.777s3.167 1.893 8.002 1.92c4.365.02 8.135-1.92 8.135-1.92"/>',
+            '</svg>',
+            '</button>',
           ].join(''));
         }
       }
     },
 
     // dynamic stylesheet
-    updateStyleSheet : function() {
+    updateStyleSheet() {
       const range = this.settings.rangeHeight.split(';');
       ghe.$style.text([
         // img styling - vertically center with set height range
-        '.atwho-view li img, #ghe-popup .select-menu-item img, img[alt="ghe-emoji"], .' +
-          this.vars.emojiClass + ' { ' +
-          'margin-bottom:.25em; vertical-align:middle; ' +
-          'min-height: ' + (range[0] || 'none') + 'px;' +
-          'max-height: ' + (range[1] || 'none') + 'px }',
+        `.atwho-view li img, #ghe-popup .select-menu-item img, img[alt="ghe-emoji"], .${
+          this.vars.emojiClass} { `
+          + 'margin-bottom:.25em; vertical-align:middle; '
+          + `min-height: ${range[0] || 'none'}px;`
+          + `max-height: ${range[1] || 'none'}px }`,
         // click (make active) on image to zoom
-        '.' + this.vars.emojiClass + ':active, a:active img[alt="ghe-emoji"] { zoom:' +
-          this.settings.activeZoom + ' }'
+        `.${this.vars.emojiClass}:active, a:active img[alt="ghe-emoji"] { zoom:${
+          this.settings.activeZoom} }`,
       ].join(''));
     },
 
-    addBindings : function() {
+    addBindings() {
       let lastKey;
-      const $popup = $('#ghe-popup'),
-        $settings = $('#ghe-settings');
+      const $popup = $('#ghe-popup');
+      const $settings = $('#ghe-settings');
       // Delegated bindings
       $('body')
-        .on('click', '.ghe-settings-open', function() {
+        .on('click', '.ghe-settings-open', function () {
           // open all collections panel
           ghe.openCollections($(this));
           return false;
         })
-        .on('click', '.ghe-collection', function() {
+        .on('click', '.ghe-collection', function () {
           // open targeted collection
           const name = $(this).attr('data-group');
           ghe.showCollection(name);
         })
-        .on('click', '.ghe-emoji', function(e) {
+        .on('click', '.ghe-emoji', function (e) {
           // click on emoji in collection to add to textarea
           ghe.addEmoji(e, $(this));
         })
-        .on('click keypress keydown', function(e) {
+        .on('click keypress keydown', (e) => {
           clearTimeout(ghe.timer);
-          const panelVisible = $popup.hasClass('in') || $settings.hasClass('in'),
-            openPanel = ghe.vars.keyboardOpen.split('+'),
-            key = String.fromCharCode(e.which).toLowerCase();
+          const panelVisible = $popup.hasClass('in') || $settings.hasClass('in');
+          const openPanel = ghe.vars.keyboardOpen.split('+');
+          const key = String.fromCharCode(e.which).toLowerCase();
           // press escape or click outside to close the panel
           if (panelVisible && e.which === 27 || e.type === 'click' && !$(e.target).closest('#ghe-wrapper').length) {
             ghe.closePanels();
@@ -597,22 +596,22 @@
             }
           }
           lastKey = key;
-          ghe.timer = setTimeout(function() {
+          ghe.timer = setTimeout(() => {
             lastKey = null;
           }, ghe.vars.keyboardDelay);
 
           // add shortcut to help menu
           if (key === '?') {
             // table doesn't exist until user presses "?"
-            setTimeout(function() {
+            setTimeout(() => {
               if (!$('.ghe-shortcut').length) {
                 $('.keyboard-mappings:eq(0) tbody:eq(0)').append([
                   '<tr class="ghe-shortcut">',
-                    '<td class="keys">',
-                      '<kbd>' + openPanel[0] + '</kbd> <kbd>' + openPanel[1] + '</kbd>',
-                    '</td>',
-                    '<td>GitHub Emojis: open settings</td>',
-                  '</tr>'
+                  '<td class="keys">',
+                  `<kbd>${openPanel[0]}</kbd> <kbd>${openPanel[1]}</kbd>`,
+                  '</td>',
+                  '<td>GitHub Emojis: open settings</td>',
+                  '</tr>',
                 ].join(''));
               }
             }, 300);
@@ -620,13 +619,13 @@
         });
 
       // popup & settings interactions
-      $('#ghe-popup .octicon-gear').on('click keyup', function(e) {
+      $('#ghe-popup .octicon-gear').on('click keyup', (e) => {
         if (e.type === 'keyup' && e.which !== 13) {
           return;
         }
         ghe.openSettings();
       });
-      $('#ghe-settings, #ghe-settings-close, #ghe-settings-inner').on('click', function(e) {
+      $('#ghe-settings, #ghe-settings-close, #ghe-settings-inner').on('click', function (e) {
         if (this.id === 'ghe-settings-inner') {
           e.stopPropagation();
         } else {
@@ -634,17 +633,17 @@
         }
       });
       // ghe-checkbox added to checkboxes
-      $('.ghe-checkbox').on('change', function() {
+      $('.ghe-checkbox').on('change', () => {
         ghe.updateSettings();
       });
       // go back - switch from single collection to showing all collections
-      $('#ghe-popup .ghe-back').on('click', function() {
+      $('#ghe-popup .ghe-back').on('click', () => {
         $('.ghe-single-collection, .ghe-back').hide();
         $('.ghe-all-collections').show();
       });
 
       // add new source input
-      $('#ghe-add-source').on('click', function() {
+      $('#ghe-add-source').on('click', () => {
         const $panel = $('#ghe-settings-inner');
         // lets not get crazy!
         if ($panel.find('.ghe-source').length < 20) {
@@ -652,7 +651,7 @@
         }
         return false;
       });
-      $('#ghe-refresh-sources, #ghe-restore').on('click', function() {
+      $('#ghe-refresh-sources, #ghe-restore').on('click', function () {
         // update sources from settings panel
         ghe.setStoredValues(this.id === 'ghe-restore');
         // load json files
@@ -664,39 +663,39 @@
       $('.ghe-height')
         .val(ghe.settings.rangeHeight)
         .ionRangeSlider({
-          type : 'double',
-          min  : 0,
-          max  : ghe.vars.maxEmojiHeight,
-          onChange : function() {
+          type: 'double',
+          min: 0,
+          max: ghe.vars.maxEmojiHeight,
+          onChange() {
             ghe.updateSettings();
           },
-          force_edges : true,
-          hide_min_max : true
+          force_edges: true,
+          hide_min_max: true,
         });
       $('.ghe-zoom')
         .val(ghe.settings.activeZoom)
         .ionRangeSlider({
-          min  : 0,
-          max  : ghe.vars.maxEmojiZoom,
-          step : 0.1,
-          onChange : function() {
+          min: 0,
+          max: ghe.vars.maxEmojiZoom,
+          step: 0.1,
+          onChange() {
             ghe.updateSettings();
           },
-          force_edges : true,
-          hide_min_max : true
+          force_edges: true,
+          hide_min_max: true,
         });
 
       // Remove source input - delegated binding
       $('.ghe-settings-wrapper')
-        .on('click', '.ghe-remove', function() {
-          const $wrapper = $(this).closest('.ghe-source'),
-            url = $wrapper.find('.ghe-source-input').attr('data-url');
+        .on('click', '.ghe-remove', function () {
+          const $wrapper = $(this).closest('.ghe-source');
+          const url = $wrapper.find('.ghe-source-input').attr('data-url');
           ghe.removeSource(url);
           $wrapper.remove();
           ghe.setStoredValues();
           return false;
         })
-        .on('focus blur input change', '.ghe-source-input', function(e) {
+        .on('focus blur input change', '.ghe-source-input', function (e) {
           if (ghe.busy) { return; }
           ghe.busy = true;
           let val;
@@ -724,31 +723,31 @@
 
       // initialize autocomplete that add emojis, but only on focus
       // since every comment has a hidden textarea
-      $('body').on('focus', '.comment-form-textarea', function() {
+      $('body').on('focus', '.comment-form-textarea', function () {
         ghe.initAutocomplete($(this));
       });
     },
 
-    showFileName : function($el) {
-      const str = $el.attr('data-url'),
-        v = str.substring(str.lastIndexOf('/') + 1, str.length);
+    showFileName($el) {
+      const str = $el.attr('data-url');
+      const v = str.substring(str.lastIndexOf('/') + 1, str.length);
       // show only the file name in the input when blurred
       // unless there is no file name
-      $el.val(v === '' ? str : '...' + v);
+      $el.val(v === '' ? str : `...${v}`);
     },
 
-    closePanels : function() {
+    closePanels() {
       $('#ghe-popup').removeClass('in');
       $('#ghe-settings').removeClass('in');
       ghe.$currentInput = null;
     },
 
-    openSettings : function() {
+    openSettings() {
       $('.modal-backdrop').click();
       $('#ghe-settings').addClass('in');
     },
 
-    openCollections : function($el) {
+    openCollections($el) {
       ghe.addCollections();
       const pos = $el.offset();
       $('#ghe-settings').removeClass('in');
@@ -756,26 +755,24 @@
         .addClass('in')
         .css({
           left: pos.left + 25,
-          top: pos.top
+          top: pos.top,
         });
       ghe.$currentInput = $el.closest('.previewable-comment-form').find('.comment-form-textarea');
     },
 
-    addCollections : function() {
-      let indx, len, key, group, item, emoji,
-        list = [];
-      const collections = ghe.collections,
-        range = ghe.settings.rangeHeight.split(';'),
-        items = [];
+    addCollections() {
+      let indx; let len; let key; let group; let item; let emoji;
+      let list = [];
+      const { collections } = ghe;
+      const range = ghe.settings.rangeHeight.split(';');
+      const items = [];
       // build collections list -
       for (key in collections) {
         if (collections.hasOwnProperty(key)) {
           list[list.length] = key;
         }
       }
-      list = list.sort(function(a, b) {
-        return a > b ? 1 : (a < b ? -1 : 0);
-      });
+      list = list.sort((a, b) => (a > b ? 1 : (a < b ? -1 : 0)));
       len = list.length;
       // add random image from group
       for (indx = 0; indx < len; indx++) {
@@ -783,49 +780,48 @@
         // random image (skip first entry)
         item = Math.round(Math.random() * (group.length - 2)) + 1;
         emoji = group[item];
-        items[items.length] = '<div class="select-menu-item js-navigation-item ghe-collection' +
-          (emoji.url ? '' : ' ghe-text-collection') +
-          '" data-group="' + list[indx] + '">' +
+        items[items.length] = `<div class="select-menu-item js-navigation-item ghe-collection${
+          emoji.url ? '' : ' ghe-text-collection'
+        }" data-group="${list[indx]}">${
           // collection info stored in first entry
-          group[0].name + ' <span class="ghe-right' +
-          (emoji.url ?
+          group[0].name} <span class="ghe-right${
+          emoji.url
             // images
-            '"><img src="' + emoji.url + '" title="' +
-            ghe.vars.emojiImgTemplate.replace(ghe.regex.template, emoji.name) + '" style="' +
-            'min-height:' + (range[0] || 'none') + 'px;' +
-            'max-height:' + (range[1] || 'none') + 'px;">' :
+            ? `"><img src="${emoji.url}" title="${
+              ghe.vars.emojiImgTemplate.replace(ghe.regex.template, emoji.name)}" style="`
+            + `min-height:${range[0] || 'none'}px;`
+            + `max-height:${range[1] || 'none'}px;">`
             // text
-            ' ghe-text" title="' + emoji.name + '" style="font-size:' + group[0].previewSize +
-            '">' + emoji.text
-           ) + '</span></div>';
+            : ` ghe-text" title="${emoji.name}" style="font-size:${group[0].previewSize
+            }">${emoji.text}`}</span></div>`;
       }
       $('.ghe-single-collection, .ghe-back').hide();
       $('.ghe-all-collections').html(items.join('')).show();
     },
 
-    showCollection : function(name) {
-      let indx, emoji;
-      const range = ghe.settings.rangeHeight.split(';'),
-        group = ghe.collections[name].slice(1).sort(ghe.emojiSort),
-        list = [],
-        len = group.length;
+    showCollection(name) {
+      let indx; let
+        emoji;
+      const range = ghe.settings.rangeHeight.split(';');
+      const group = ghe.collections[name].slice(1).sort(ghe.emojiSort);
+      const list = [];
+      const len = group.length;
       for (indx = 1; indx < len; indx++) {
         emoji = group[indx];
-        list[indx - 1] = '<div class="select-menu-item js-navigation-item ghe-emoji' +
-          (emoji.url ? '' : ' ghe-text-emoji') +
-          '" data-name="' + emoji.name + '">' +
-          emoji.name + '<span class="ghe-right' +
-          (emoji.url ?
+        list[indx - 1] = `<div class="select-menu-item js-navigation-item ghe-emoji${
+          emoji.url ? '' : ' ghe-text-emoji'
+        }" data-name="${emoji.name}">${
+          emoji.name}<span class="ghe-right${
+          emoji.url
             // images
-            '"><img src="' + emoji.url + '" style="' +
-            'min-height:' + (range[0] || 'none') + 'px;' +
-            'max-height:' + (range[1] || 'none') + 'px">' :
+            ? `"><img src="${emoji.url}" style="`
+            + `min-height:${range[0] || 'none'}px;`
+            + `max-height:${range[1] || 'none'}px">`
             // text type
-            ' ghe-text" style="font-size:' + ghe.collections[name][0].previewSize +
+            : ` ghe-text" style="font-size:${ghe.collections[name][0].previewSize
             // data-emoji needed because Chrome emoji-one extension adds hidden
             // text inside the span when it replaces the text with an svg
-            '" data-emoji="' + emoji.text + '">' + emoji.text
-          ) + '</span></div>';
+            }" data-emoji="${emoji.text}">${emoji.text}`}</span></div>`;
       }
       $('.ghe-all-collections').hide();
       $('.ghe-single-collection').html(list.join('')).show();
@@ -833,19 +829,20 @@
     },
 
     // add emoji from collection
-    addEmoji : function(e, $el) {
-      let val, emoji;
-      const $img = $el.find('img'),
-        name = $el.attr('data-name'),
-        caretPos = ghe.$currentInput.caret('pos');
+    addEmoji(e, $el) {
+      let val; let
+        emoji;
+      const $img = $el.find('img');
+      const name = $el.attr('data-name');
+      const caretPos = ghe.$currentInput.caret('pos');
       if ($img.length) {
         // insert into textarea
         if (e.shiftKey || ghe.settings.insertAsImage) {
           // add image tag directly if shift is held;
           // GitHub does NOT allow class names so we are forced to use alt
-          emoji = '<img alt="ghe-emoji" title="' +
-            ghe.vars.emojiImgTemplate.replace(ghe.regex.template, name) +
-            '" src="' + $el.find('img').attr('src') + '">';
+          emoji = `<img alt="ghe-emoji" title="${
+            ghe.vars.emojiImgTemplate.replace(ghe.regex.template, name)
+          }" src="${$el.find('img').attr('src')}">`;
         } else {
           emoji = ghe.vars.emojiImgTemplate.replace(ghe.regex.template, name);
         }
@@ -855,18 +852,18 @@
       }
       val = ghe.$currentInput.val();
       ghe.$currentInput
-        .val(val.slice(0, caretPos) + emoji + ' ' + val.slice(caretPos))
+        .val(`${val.slice(0, caretPos) + emoji} ${val.slice(caretPos)}`)
         .focus()
         .caret('pos', caretPos + emoji.length + 1);
       ghe.closePanels();
     },
 
-    removeSource : function(url) {
+    removeSource(url) {
       let indx;
-      const list = [],
-        collections = this.collections,
-        sources = this.settings.sources,
-        len = sources.length;
+      const list = [];
+      const { collections } = this;
+      const { sources } = this.settings;
+      const len = sources.length;
       // remove from source
       for (indx = 0; indx < len; indx++) {
         if (sources[indx] !== url) {
@@ -877,19 +874,19 @@
       for (indx in collections) {
         if (collections.hasOwnProperty(indx) && collections[indx][0].url === url) {
           delete collections[indx];
-          debug('Removing "' + indx + '" collection', collections);
+          debug(`Removing "${indx}" collection`, collections);
         }
       }
     },
 
-    update : function() {
+    update() {
       this.isUpdating = true;
       this.addToolbarIcon();
       // checkPage clears isUpdating flag
       this.checkPage();
     },
 
-    addPanels : function() {
+    addPanels() {
       /* https://github.com/ichord/At.js styles for autocomplete */
       GM_addStyle([
         // settings panel
@@ -954,127 +951,127 @@
         '.irs-slider.state_hover,.irs-slider:hover{background-position:0 -150px}.irs-min,.irs-max{color:#fff;font-size:10px;line-height:1.333;text-shadow:none;top:0;padding:1px 3px;background:#7D7E81;-moz-border-radius:4px;border-radius:4px}',
         '.irs-from,.irs-to,.irs-single{color:#fff;font-size:10px;line-height:1.333;text-shadow:none;padding:1px 5px;background:#534AA1;-moz-border-radius:4px;border-radius:4px}',
         '.irs-from:after,.irs-to:after,.irs-single:after{position:absolute;display:block;content:"";bottom:-6px;left:50%;width:0;height:0;margin-left:-3px;overflow:hidden;border:3px solid transparent;border-top-color:#534AA1}',
-        '.irs-grid-pol{background:#e1e4e9}.irs-grid-text{color:#999}'
+        '.irs-grid-pol{background:#e1e4e9}.irs-grid-text{color:#999}',
       ].join(''));
 
       // Settings panel markup
       $('body').append([
         '<div id="ghe-wrapper">',
-          '<div id="ghe-popup" class="select-menu-modal-holder js-menu-content js-navigation-container js-active-navigation-container">',
-            '<div class="select-menu-modal">',
-              '<div class="select-menu-header">',
-                '<span class="select-menu-title">',
-                  '<text>Emoji Collections</text>',
-                  '<span class="octicon tooltipped tooltipped-w" aria-label="Change GitHub Custom Emoji Settings">',
-                    '<svg class="octicon-gear" viewBox="0 0 16 14" style="height: 16px; width: 14px;"><path d="M14 8.77V7.17l-1.94-0.64-0.45-1.09 0.88-1.84-1.13-1.13-1.81 0.91-1.09-0.45-0.69-1.92H6.17l-0.63 1.94-1.11 0.45-1.84-0.88-1.13 1.13 0.91 1.81-0.45 1.09L0 7.23v1.59l1.94 0.64 0.45 1.09-0.88 1.84 1.13 1.13 1.81-0.91 1.09 0.45 0.69 1.92h1.59l0.63-1.94 1.11-0.45 1.84 0.88 1.13-1.13-0.92-1.81 0.47-1.09 1.92-0.69zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>',
-                  '</span>',
-                  '<span class="octicon tooltipped tooltipped-w ghe-back" aria-label="Go back to see all collections">',
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="6.5" height="10" viewBox="0 0 6.5 10"><path d="M5.008 0l1.497 1.504-3.76 3.49 3.743 3.51L4.984 10l-4.99-5.013L5.01 0z"/></svg>',
-                  '</span>',
-                '</span>',
-              '</div>',
-              '<div class="js-select-menu-deferred-content ghe-content">',
-                '<div class="select-menu-list ghe-all-collections"></div>',
-                '<div class="select-menu-list ghe-single-collection"></div>',
-              '</div>',
-            '</div>',
-          '</div>',
-          '<div id="ghe-settings">',
-            '<div id="ghe-settings-inner" class="boxed-group">',
-              '<h3>GitHub Custom Emoji Settings',
-              '<svg id="ghe-settings-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="160 160 608 608"><path d="M686.2 286.8L507.7 465.3l178.5 178.5-45 45-178.5-178.5-178.5 178.5-45-45 178.5-178.5-178.5-178.5 45-45 178.5 178.5 178.5-178.5z"/></svg>',
-              '</h3>',
-              '<div class="boxed-group-inner">',
-                '<form>',
-                  '<div class="ghe-settings-wrapper">',
-                    '<p>',
-                      '<label>Insert as Image:',
-                        '<sup class="tooltipped tooltipped-e" aria-label="Or Shift + select the emoji">?</sup>',
-                        '<input class="ghe-image ghe-checkbox ghe-right" type="checkbox">',
-                      '</label>',
-                    '</p>',
-                    '<p class="checkbox">',
-                      '<label>Case Sensitive <input class="ghe-case ghe-checkbox ghe-right" type="checkbox"></label>',
-                    '</p>',
-                    '<div class="ghe-slider-wrapper">',
-                      '<div class="ghe-range-slider">',
-                        '<input type="text" class="ghe-height" value="" />',
-                      '</div>',
-                      '<label>Emoji Height',
-                        '<sup class="tooltipped tooltipped-e" aria-label="Set emoji minimum & maximum&#10;height in pixels">?</sup>',
-                      '</label>',
-                    '</div>',
-                    '<div class="ghe-slider-wrapper">',
-                      '<div class="ghe-zoom-slider">',
-                        '<input class="ghe-zoom ghe-right" type="text">',
-                      '</div>',
-                      '<label>Emoji Zoom',
-                        '<sup class="tooltipped tooltipped-e" aria-label="Set Emoji zoom factor&#10;while actively clicked">?</sup>',
-                      '</label>',
-                    '</div>',
-                    '<p>',
-                      '<hr>',
-                      '<h3>Sources',
-                        '<a href="https://github.com/StylishThemes/GitHub-Custom-Emojis/wiki/Add-Emojis" class="tooltipped tooltipped-e tooltipped-multiline" aria-label="Click to get more details on how to set up an Emoji source JSON file">',
-                          '<sup>?</sup>',
-                        '</a>',
-                      '</h3>',
-                      '<div class="ghe-sources"></div>',
-                    '</p>',
-                  '</div>',
-                  '<div class="ghe-footer">',
-                    '<a href="#" id="ghe-restore" class="btn btn-sm btn-danger tooltipped tooltipped-n ghe-right" aria-label="Default sources are restored;&#10;other source will remain">Restore Defaults</a>',
-                    '<div class="btn-group">',
-                      '<a href="#" id="ghe-add-source" class="btn btn-sm">Add Source</a>',
-                      '<a href="#" id="ghe-refresh-sources" class="btn btn-sm">Refresh Sources</a>&nbsp;',
-                    '</div>',
-                  '</div>',
-                '</form>',
-              '</div>',
-            '</div>',
-          '</div>',
-        '</div>'
+        '<div id="ghe-popup" class="select-menu-modal-holder js-menu-content js-navigation-container js-active-navigation-container">',
+        '<div class="select-menu-modal">',
+        '<div class="select-menu-header">',
+        '<span class="select-menu-title">',
+        '<text>Emoji Collections</text>',
+        '<span class="octicon tooltipped tooltipped-w" aria-label="Change GitHub Custom Emoji Settings">',
+        '<svg class="octicon-gear" viewBox="0 0 16 14" style="height: 16px; width: 14px;"><path d="M14 8.77V7.17l-1.94-0.64-0.45-1.09 0.88-1.84-1.13-1.13-1.81 0.91-1.09-0.45-0.69-1.92H6.17l-0.63 1.94-1.11 0.45-1.84-0.88-1.13 1.13 0.91 1.81-0.45 1.09L0 7.23v1.59l1.94 0.64 0.45 1.09-0.88 1.84 1.13 1.13 1.81-0.91 1.09 0.45 0.69 1.92h1.59l0.63-1.94 1.11-0.45 1.84 0.88 1.13-1.13-0.92-1.81 0.47-1.09 1.92-0.69zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>',
+        '</span>',
+        '<span class="octicon tooltipped tooltipped-w ghe-back" aria-label="Go back to see all collections">',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="6.5" height="10" viewBox="0 0 6.5 10"><path d="M5.008 0l1.497 1.504-3.76 3.49 3.743 3.51L4.984 10l-4.99-5.013L5.01 0z"/></svg>',
+        '</span>',
+        '</span>',
+        '</div>',
+        '<div class="js-select-menu-deferred-content ghe-content">',
+        '<div class="select-menu-list ghe-all-collections"></div>',
+        '<div class="select-menu-list ghe-single-collection"></div>',
+        '</div>',
+        '</div>',
+        '</div>',
+        '<div id="ghe-settings">',
+        '<div id="ghe-settings-inner" class="boxed-group">',
+        '<h3>GitHub Custom Emoji Settings',
+        '<svg id="ghe-settings-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="160 160 608 608"><path d="M686.2 286.8L507.7 465.3l178.5 178.5-45 45-178.5-178.5-178.5 178.5-45-45 178.5-178.5-178.5-178.5 45-45 178.5 178.5 178.5-178.5z"/></svg>',
+        '</h3>',
+        '<div class="boxed-group-inner">',
+        '<form>',
+        '<div class="ghe-settings-wrapper">',
+        '<p>',
+        '<label>Insert as Image:',
+        '<sup class="tooltipped tooltipped-e" aria-label="Or Shift + select the emoji">?</sup>',
+        '<input class="ghe-image ghe-checkbox ghe-right" type="checkbox">',
+        '</label>',
+        '</p>',
+        '<p class="checkbox">',
+        '<label>Case Sensitive <input class="ghe-case ghe-checkbox ghe-right" type="checkbox"></label>',
+        '</p>',
+        '<div class="ghe-slider-wrapper">',
+        '<div class="ghe-range-slider">',
+        '<input type="text" class="ghe-height" value="" />',
+        '</div>',
+        '<label>Emoji Height',
+        '<sup class="tooltipped tooltipped-e" aria-label="Set emoji minimum & maximum&#10;height in pixels">?</sup>',
+        '</label>',
+        '</div>',
+        '<div class="ghe-slider-wrapper">',
+        '<div class="ghe-zoom-slider">',
+        '<input class="ghe-zoom ghe-right" type="text">',
+        '</div>',
+        '<label>Emoji Zoom',
+        '<sup class="tooltipped tooltipped-e" aria-label="Set Emoji zoom factor&#10;while actively clicked">?</sup>',
+        '</label>',
+        '</div>',
+        '<p>',
+        '<hr>',
+        '<h3>Sources',
+        '<a href="https://github.com/StylishThemes/GitHub-Custom-Emojis/wiki/Add-Emojis" class="tooltipped tooltipped-e tooltipped-multiline" aria-label="Click to get more details on how to set up an Emoji source JSON file">',
+        '<sup>?</sup>',
+        '</a>',
+        '</h3>',
+        '<div class="ghe-sources"></div>',
+        '</p>',
+        '</div>',
+        '<div class="ghe-footer">',
+        '<a href="#" id="ghe-restore" class="btn btn-sm btn-danger tooltipped tooltipped-n ghe-right" aria-label="Default sources are restored;&#10;other source will remain">Restore Defaults</a>',
+        '<div class="btn-group">',
+        '<a href="#" id="ghe-add-source" class="btn btn-sm">Add Source</a>',
+        '<a href="#" id="ghe-refresh-sources" class="btn btn-sm">Refresh Sources</a>&nbsp;',
+        '</div>',
+        '</div>',
+        '</form>',
+        '</div>',
+        '</div>',
+        '</div>',
+        '</div>',
       ].join(''));
     },
 
     // JSON source inputs
-    sourceHTML : [
+    sourceHTML: [
       '<div class="ghe-source">',
-        '<input class="ghe-source-input" type="text" value="" placeholder="Add JSON sources only">',
-        '<a href="#" class="ghe-remove btn btn-sm btn-danger">',
-          '<svg class="ghe-remove-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="160 160 608 608" fill="currentColor"><path d="M686.2 286.8L507.7 465.3l178.5 178.5-45 45-178.5-178.5-178.5 178.5-45-45 178.5-178.5-178.5-178.5 45-45 178.5 178.5 178.5-178.5z"/></svg>',
-        '</a>',
-      '</div>'
+      '<input class="ghe-source-input" type="text" value="" placeholder="Add JSON sources only">',
+      '<a href="#" class="ghe-remove btn btn-sm btn-danger">',
+      '<svg class="ghe-remove-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="160 160 608 608" fill="currentColor"><path d="M686.2 286.8L507.7 465.3l178.5 178.5-45 45-178.5-178.5-178.5 178.5-45-45 178.5-178.5-178.5-178.5 45-45 178.5 178.5 178.5-178.5z"/></svg>',
+      '</a>',
+      '</div>',
     ].join(''),
 
-    setRegex : function() {
-      const isCS = this.settings.caseSensitive,
-        // parts = [':_', ':']
-        imgParts = this.vars.emojiImgTemplate.split('${name}'),
-        txtParts = this.vars.emojiTxtTemplate.split('${name}');
+    setRegex() {
+      const isCS = this.settings.caseSensitive;
+      // parts = [':_', ':']
+      const imgParts = this.vars.emojiImgTemplate.split('${name}');
+      const txtParts = this.vars.emojiTxtTemplate.split('${name}');
 
       // filter = /:_([a-zA-Z\u00c0-\u00ff0-9_,'.+-]*)$|:_([^\x00-\xff]*)$/gi
       // used by atwho.js autocomplete
       this.regex.emojiImgFilter = new RegExp(
-        imgParts[0] + '([a-zA-Z\u00c0-\u00ff0-9_,\'.+-]*)$|' +
-        imgParts[0] + '([^\\x00-\\xff]*)$',
-        (isCS ? 'g' : 'gi')
+        `${imgParts[0]}([a-zA-Z\u00c0-\u00ff0-9_,'.+-]*)$|${
+          imgParts[0]}([^\\x00-\\xff]*)$`,
+        (isCS ? 'g' : 'gi'),
       );
 
       this.regex.emojiTxtFilter = new RegExp(
-        txtParts[0] + '([a-zA-Z\u00c0-\u00ff0-9_,\'.+-]*)$|' +
-        txtParts[0] + '([^\\x00-\\xff]*)$',
-        (isCS ? 'g' : 'gi')
+        `${txtParts[0]}([a-zA-Z\u00c0-\u00ff0-9_,'.+-]*)$|${
+          txtParts[0]}([^\\x00-\\xff]*)$`,
+        (isCS ? 'g' : 'gi'),
       );
 
       // used by search & replace
       this.regex.nameRegex = new RegExp(
-        imgParts[0] + '([\\w_]+)' + imgParts[1],
-        (isCS ? 'g' : 'gi')
+        `${imgParts[0]}([\\w_]+)${imgParts[1]}`,
+        (isCS ? 'g' : 'gi'),
       );
     },
 
-    init : function() {
+    init() {
       debug('GitHub-Emoji Script initializing!');
 
       // add style tag to head
@@ -1088,18 +1085,18 @@
       this.setRegex();
 
       const targets = document.querySelectorAll(this.containers.join(','));
-      Array.prototype.forEach.call(targets, function(target) {
-        new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
+      Array.prototype.forEach.call(targets, (target) => {
+        new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
             // preform checks before adding code wrap to minimize function calls
-            if (mutation.target === target && !$.isEmptyObject(ghe.collections) &&
-              !(ghe.isUpdating || target.querySelector('.ghe-processed'))) {
+            if (mutation.target === target && !$.isEmptyObject(ghe.collections)
+              && !(ghe.isUpdating || target.querySelector('.ghe-processed'))) {
               ghe.update();
             }
           });
         }).observe(target, {
-          childList : true,
-          subtree : true
+          childList: true,
+          subtree: true,
         });
       });
 
@@ -1113,7 +1110,7 @@
 
       // checkPage clears isUpdating flag
       this.checkPage();
-    }
+    },
   };
 
   // add style at document-start
@@ -1125,4 +1122,4 @@
       console.log.apply(console, arguments);
     }
   }
-})(jQuery.noConflict(true));
+}(jQuery.noConflict(true)));
