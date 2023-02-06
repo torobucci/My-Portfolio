@@ -4,6 +4,10 @@
 @import url("https://fonts.googleapis.com/css2?family=cyrillic Roboto");
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -54,7 +58,7 @@ header a {
 .fa-bars {
   font-size: 18px;
   color: #fff;
-  margin-right: 0;
+  z-index: 2;
   transition: all 0.5s linear;
 }
 
@@ -709,6 +713,46 @@ footer {
   margin-bottom: 8px;
 }
 
+.menu-toggle {
+  background-color: #1c1a19;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: height 2s ease-in-out;
+}
+
+.menu-toggle-height {
+  display: block;
+  height: 100vh;
+}
+
+.toggle-ul {
+  margin-top: 56px;
+  margin-right: 40px;
+}
+
+.toggle-ul-li {
+  border-bottom: 1px solid #6f6c6b;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.toggle-ul-li-a {
+  font-family: 'Inter', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #fff5e1;
+}
+
+.none {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   header {
     padding: 0 6rem;
@@ -867,6 +911,10 @@ footer {
   }
 
   .footer-vector {
+    display: none;
+  }
+
+  .menu-toggle {
     display: none;
   }
 }
