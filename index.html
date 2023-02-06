@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Torobucci's Portfolio</title>
     <script src="https://kit.fontawesome.com/198fcc7e17.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header>
-        <a href="#">Kevin Toro</a>
+    <header class="main-header">
+        <a href="#" id="header-a">Kevin Toro</a>
         <nav>
             <ul class="desktop-header-nav">
                 <li><a href="#">Portfolio</a></li>
@@ -23,8 +23,16 @@
         </nav>
         <i class="fa-solid fa-bars"></i>
     </header>
-    <main>
-        <section class="headline-section">
+    <div class="menu-toggle">
+        <ul class="toggle-ul">
+            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#headline-section">Portfolio</a></li>
+            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#about-me">About</a></li>
+            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#form-section">Contact</a></li>
+        </ul>
+    </div>
+
+    <main class="main">
+        <section class="headline-section" id="headline-section">
             <div class="headline">
                 <div class="primary-text">
                     <h1>Hey There. I’m Toro</h1>
@@ -66,7 +74,7 @@
                 </div>
             </div>
         </section>
-        <section class="work-section">
+        <section class="work-section " id="work-section">
             <div class="title-div">
                 <h2 class="title">My Recent Works</h2>
                 <div class="title-vector"></div>
@@ -302,7 +310,7 @@
                 </div>
             </div>
         </section>
-        <section class="about-me">
+        <section class="about-me" id="about-me">
             <div class="about-me-div">
                 <h2>About me</h2>
                 <p>
@@ -340,7 +348,7 @@
                 </ul>
             </div>
         </section>
-        <section class="form-section">
+        <section class="form-section" id="form-section">
             <p class="form-text">
                 I'm always interested in hearing about new projects, so if you'd like to chat please get in touch.
             </p>
@@ -384,6 +392,7 @@
         </footer>
 
     </main>
+    <script src="index.js"></script>
 </body>
 
 </html>
