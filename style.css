@@ -721,7 +721,7 @@ footer {
   height: 0;
   width: 100%;
   overflow: hidden;
-  transition: height 2s ease-in-out;
+  transition: height 1s ease-in-out;
 }
 
 .menu-toggle-height {
