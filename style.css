@@ -829,7 +829,6 @@ footer {
 
   .title {
     padding: 0;
-    min-width: fit-content;
     border: none;
   }
 
@@ -850,7 +849,6 @@ footer {
     grid-template-columns: 364px 364px 364px;
     align-items: center;
     gap: 10px;
-    max-width: fit-content;
   }
 
   #last {
