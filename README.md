@@ -152,9 +152,9 @@ npx stylelint "**/*.{css,scss}"
 
 👤 **Author2**
 
-- GitHub: [@jasonrolls](https://github.com/jason254)
-- Twitter: [@jasonrolls](https://twitter.com/@jasonrolls)
-- LinkedIn: [Jason Rolls](https://linkedin.com/in/Jason Rolls)
+- GitHub: [@Unleashedicon](https://github.com/Unleashedicon)
+- Twitter: [@Unleashedicon](https://twitter.com/@Unleashedicon)
+- LinkedIn: [Unleashedicon](https://linkedin.com/in/Unleashedicon)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
