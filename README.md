@@ -148,7 +148,7 @@ npx stylelint "**/*.{css,scss}"
 
 - GitHub: [@torobucii](https://github.com/torobucii)
 - Twitter: [@torobucii](https://twitter.com/@torobucii)
-- LinkedIn: [Kevin Toro](https://linkedin.com/in/Kevin Toro)
+- LinkedIn: [Kevin Toro](https://linkedin.com/in/KevinToro)
 
 👤 **Author2**
 
