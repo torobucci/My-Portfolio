@@ -41,7 +41,6 @@ li {
 /* Header */
 header {
   background: #3c3a39;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
@@ -83,7 +82,6 @@ header a {
 }
 
 .headline {
-  display: flex;
   flex-direction: column;
   width: 85%;
   gap: 0;
@@ -121,12 +119,10 @@ header a {
 
 .social-media {
   margin-top: -20px;
-  display: flex;
   justify-content: flex-start;
 }
 
 .social-media ul {
-  display: flex;
   align-items: center;
   list-style-type: none;
   margin-left: -40px;
@@ -173,14 +169,12 @@ header a {
 }
 
 .featured-img {
-  display: flex;
   flex-direction: column;
   padding: 0 24px;
   gap: 24px;
 }
 
 .right-block {
-  display: flex;
   flex-direction: column;
   padding: 0;
   align-content: flex-start;
@@ -206,7 +200,6 @@ header a {
 }
 
 .tags {
-  display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0;
@@ -280,7 +273,6 @@ header a {
 .frame43-right-block {
   margin-top: 76px;
   box-sizing: border-box;
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 8px 16px;
@@ -410,7 +402,6 @@ header a {
 }
 
 .tags1 {
-  display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0;
@@ -428,7 +419,6 @@ header a {
 }
 
 .about-me-div {
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 100px 24px;
@@ -479,7 +469,6 @@ header a {
 }
 
 .skill {
-  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 100px 0;
@@ -666,7 +655,6 @@ footer {
 }
 
 .footer-ul {
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -757,7 +745,6 @@ footer {
 
 .top-content-text {
   box-sizing: border-box;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 24px;
@@ -781,7 +768,6 @@ footer {
 }
 
 .top-content-tag {
-  display: flex;
   column-gap: 10px;
   padding-left: 24px;
 }
@@ -795,7 +781,6 @@ footer {
 }
 
 .popup-content-text {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -810,12 +795,10 @@ footer {
 }
 
 .popup-content-text-btn {
-  display: flex;
   column-gap: 30px;
 }
 
 .pop-btn {
-  display: flex;
   align-items: center;
   column-gap: 10px;
   background: #f55800;
@@ -829,6 +812,10 @@ footer {
   color: #fff;
   padding: 0.5em;
   transition: background-color, color 3s ease 0.25s;
+}
+
+.flex {
+  display: flex;
 }
 
 @media screen and (min-width: 768px) {
@@ -878,7 +865,6 @@ footer {
   }
 
   .social-media ul {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;

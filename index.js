@@ -79,7 +79,7 @@ for (let i = 0; i < projects.length; i += 1) {
   cardwork.className = projects[i]['card work class'];
   grid1.appendChild(cardwork);
   const frame43 = document.createElement('div');
-  frame43.className = 'frame43-right-block';
+  frame43.className = 'frame43-right-block flex';
   cardwork.appendChild(frame43);
   const h2 = document.createElement('h2');
   h2.className = 'title-post1';
@@ -90,7 +90,7 @@ for (let i = 0; i < projects.length; i += 1) {
   p.textContent = projects[i].description;
   frame43.appendChild(p);
   const ul = document.createElement('ul');
-  ul.className = 'tags1';
+  ul.className = 'tags1 flex';
   frame43.appendChild(ul);
 
   for (let j = 0; j < projects[0].technologies.length; j += 1) {
