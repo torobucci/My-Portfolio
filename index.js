@@ -120,3 +120,20 @@ faX.addEventListener('click', () => {
   popupWindow.classList.toggle('show');
   bodycontent.classList.toggle('body-overflow');
 });
+
+const form = document.querySelector('form');
+const email = document.querySelector('#email');
+const error = document.querySelector('.error');
+form.addEventListener('submit', (e) => {
+  const emailRegex = /[A-Z]+/;
+  const emailValue = email.value;
+  if (emailRegex.test(emailValue)) {
+    error.querySelector('p').textContent = 'Form not submitted';
+    error.querySelector('small').textContent = 'Please ensure your email is in lowercase';
+    setTimeout(() => {
+      error.querySelector('p').textContent = '';
+      error.querySelector('small').textContent = '';
+    }, 5000);
+    e.preventDefault();
+  }
+});
