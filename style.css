@@ -629,14 +629,13 @@ textarea:focus {
   outline: none;
 }
 
-input:hover,
-textarea:hover {
-  transform: translate(20px);
+input:hover::placeholder {
+  transform: translate(10px);
 }
 
 .get-in-touch {
+  margin: 0 25%;
   width: 50%;
-  margin-left: 25%;
   border: none;
   color: #fff;
   background-color: #ff6b00;
@@ -816,6 +815,24 @@ footer {
 
 .flex {
   display: flex;
+}
+
+.error {
+  max-width: 222px;
+  text-align: center;
+  font-family: "Inter", serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: black;
+  outline: auto;
+  margin: 20px auto;
+}
+
+small {
+  color: red;
 }
 
 @media screen and (min-width: 768px) {
@@ -1012,5 +1029,9 @@ footer {
 
   #firsth2 {
     display: block;
+  }
+
+  .error {
+    margin-left: 0;
   }
 }
