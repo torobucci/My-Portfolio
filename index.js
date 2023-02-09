@@ -225,9 +225,11 @@ seeProject.forEach((el, i) => {
     bodycontent.classList.toggle('body-overflow');
     const faX = document.querySelector('.fa-x');
     faX.addEventListener('click', () => {
-      bodycontent.removeChild(popupWindow);
-      popupWindow.classList.toggle('show');
-      bodycontent.classList.toggle('body-overflow');
+      if (bodycontent.contains(popupWindow)) {
+        bodycontent.removeChild(popupWindow);
+        popupWindow.classList.toggle('show');
+        bodycontent.classList.toggle('body-overflow');
+      }
     });
   });
 });

@@ -773,6 +773,7 @@ footer {
 
 #snapshot-portfolio {
   width: 80%;
+  object-fit: cover;
 }
 
 .popup-content-text {
@@ -998,9 +999,7 @@ small {
     display: none;
   }
 
-  #secondh2 {
-    display: none;
-  }
+
 
   .popup-content {
     display: flex;
@@ -1016,6 +1015,7 @@ small {
 
   #snapshot-portfolio {
     width: 60%;
+    min-width: 500px;
     max-height: 300px;
   }
 
