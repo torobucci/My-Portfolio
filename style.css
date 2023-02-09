@@ -712,10 +712,6 @@ footer {
   display: none;
 }
 
-#firsth2 {
-  display: none;
-}
-
 .popup-window {
   position: fixed;
   top: 0;
@@ -777,6 +773,7 @@ footer {
 
 #snapshot-portfolio {
   width: 80%;
+  object-fit: cover;
 }
 
 .popup-content-text {
@@ -1002,10 +999,6 @@ small {
     display: none;
   }
 
-  #secondh2 {
-    display: none;
-  }
-
   .popup-content {
     display: flex;
     column-gap: 24px;
@@ -1020,15 +1013,12 @@ small {
 
   #snapshot-portfolio {
     width: 60%;
+    min-width: 500px;
     max-height: 300px;
   }
 
   .popup-content-text p {
     max-width: 336px;
-  }
-
-  #firsth2 {
-    display: block;
   }
 
   .error {
