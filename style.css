@@ -712,10 +712,6 @@ footer {
   display: none;
 }
 
-#firsth2 {
-  display: none;
-}
-
 .popup-window {
   position: fixed;
   top: 0;
@@ -1025,10 +1021,6 @@ small {
 
   .popup-content-text p {
     max-width: 336px;
-  }
-
-  #firsth2 {
-    display: block;
   }
 
   .error {
