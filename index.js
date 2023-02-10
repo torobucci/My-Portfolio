@@ -234,7 +234,7 @@ seeProject.forEach((el, i) => {
   });
 });
 
-/* FORM VALIDATION && LOCAL STORAGE*/
+/* FORM VALIDATION && LOCAL STORAGE */
 const form = document.querySelector('form');
 const emailInput = document.querySelector('#email');
 const userName = document.getElementById('name');
@@ -277,4 +277,3 @@ if (!localStorage.getItem('Form Data')) {
 } else {
   refillValue();
 }
-
