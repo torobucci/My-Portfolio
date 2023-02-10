@@ -200,7 +200,7 @@ seeProject.forEach((el, i) => {
           </ul>
       </div>
       <div class="popup-content">
-          <img id="snapshot-portfolio" src="./images/Snapshoot Portfolio.svg" alt="Snapshoot Portfolio">
+          <img id="snapshot-portfolio" src="./images/Snapshoot Portfolio.png" alt="Snapshoot Portfolio">
           <div class="popup-content-text flex">
               <p>${projects2[i].description}</p>
   
@@ -234,13 +234,15 @@ seeProject.forEach((el, i) => {
   });
 });
 
-/* FORM VALIDATION */
+/* FORM VALIDATION && LOCAL STORAGE */
 const form = document.querySelector('form');
-const email = document.querySelector('#email');
+const emailInput = document.querySelector('#email');
+const userName = document.getElementById('name');
+const message = document.getElementById('message');
 const error = document.querySelector('.error');
 form.addEventListener('submit', (e) => {
   const emailRegex = /[A-Z]+/;
-  const emailValue = email.value;
+  const emailValue = emailInput.value;
   if (emailRegex.test(emailValue)) {
     error.querySelector('p').textContent = 'Form not submitted';
     error.querySelector('small').textContent = 'Please ensure your email is in lowercase';
@@ -251,3 +253,27 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
   }
 });
+
+function populateStorage() {
+  const data = { name: '', email: '', message: '' };
+  data.name = userName.value;
+  data.email = emailInput.value;
+  data.message = message.value;
+  const storageData = JSON.stringify(data);
+  localStorage.setItem('Form Data', storageData);
+}
+function refillValue() {
+  const currentData = localStorage.getItem('Form Data');
+  const currentDataObj = JSON.parse(currentData);
+  userName.value = currentDataObj.name;
+  emailInput.value = currentDataObj.email;
+  message.value = currentDataObj.message;
+}
+userName.onchange = populateStorage;
+emailInput.onchange = populateStorage;
+message.onchange = populateStorage;
+if (!localStorage.getItem('Form Data')) {
+  populateStorage();
+} else {
+  refillValue();
+}
