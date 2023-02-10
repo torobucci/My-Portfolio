@@ -269,4 +269,12 @@ function refillValue() {
   emailInput.value = currentDataObj.email;
   message.value = currentDataObj.message;
 }
+userName.onchange = populateStorage;
+emailInput.onchange = populateStorage;
+message.onchange = populateStorage;
+if (!localStorage.getItem('Form Data')) {
+  populateStorage();
+} else {
+  refillValue();
+}
 
