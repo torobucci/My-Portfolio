@@ -26,7 +26,7 @@ After you're finished please remove all the comments and instructions!
 -->
 
 
-  <h1 text-align="center"><b>Portfolio:finish mobile version</b></h1>
+  <h1 text-align="center"><b>My Portfolio</b></h1>
 
 </div>
 
@@ -56,15 +56,16 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Portfolio: finish mobile version] <a name="about-project">
+ # 📖 My Portfolio <a name="about-project">
 </a>
 
-**[Portfolio: finish mobile version]** is a project that adds about my recent works and about me to my portfolio.
+**My Portfolio** is a project that adds about my recent works and about me to my portfolio.
 Here is a walkthrough [video](https://www.loom.com/share/f62ba52796aa44efa5656eefbec33875) about the project
 
 ## 🛠 Built With <a name="built-with">
     Html
     Css
+    JavaScript
 </a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -79,10 +80,10 @@ Here is a walkthrough [video](https://www.loom.com/share/f62ba52796aa44efa5656ee
 
 ### Key Features <a name="key-features"></a>
 
-- **[My recent works intro]**
-- **[Recent works]**
-- **[About me section]**
-- **[Animations and transitions on buttons and project cards]**
+- [ ] **My recent works intro**
+- [ ] **Recent works**
+- [ ] **About me section**
+- [ ] **Animations and transitions on buttons and project cards**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,7 +91,7 @@ Here is a walkthrough [video](https://www.loom.com/share/f62ba52796aa44efa5656ee
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://torobucci.github.io/Portfolio-finish-mobile-version/)
+- [Live Demo Link](https://torobucci.github.io/My-Portfolio/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -99,7 +100,7 @@ Here is a walkthrough [video](https://www.loom.com/share/f62ba52796aa44efa5656ee
 ## 💻 Getting Started <a name="getting-started"></a>
 To get a local copy up and running, follow these steps.
 
-fork the repository https://github.com/torobucci/Portfolio-finish-mobile-version on github
+fork the repository https://github.com/torobucci/My-Portfolio on github
 
 ### Prerequisites
 
@@ -112,7 +113,7 @@ Web browser eg. chrome
 
 Clone this repository to your desired folder:
   cd hello-world
-  git clone https://github.com/torobucci/Portfolio-finish-mobile-version
+  git clone https://github.com/torobucci/My-Portfolio
 
 
 <!--
@@ -162,9 +163,9 @@ npx stylelint "**/*.{css,scss}"
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Display of my sample works]**
-- [ ] **[About me]**
-- [ ] **[Resposive screen]**
+- [ ] Display of my sample works
+- [ ] About me
+- [ ] Resposive screen
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
