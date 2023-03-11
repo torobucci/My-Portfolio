@@ -324,7 +324,6 @@ header a {
 
 .card-works1:hover {
   cursor: grab;
-  background-image: url("./images-desktop/card-works1.png");
   transform: scale(1.05);
 }
 
@@ -346,7 +345,6 @@ header a {
 }
 
 .card-works2 {
-  background-image: url("./images-desktop/card-works2.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 90%;
@@ -363,7 +361,7 @@ header a {
 }
 
 .card-works3 {
-  background-image: url("./images-desktop/card-works3.png");
+ 
   background-repeat: no-repeat;
   background-size: cover;
   width: 90%;
