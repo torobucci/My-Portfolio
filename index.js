@@ -17,9 +17,9 @@ menuToggleAnchor.addEventListener('click', () => {
 
 const projects = [
   {
-    name: 'Professional art Printing data',
-    description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works1.png',
+    name: 'To-Do List Web Application',
+    description: 'A to-do list app is a web application designed to help individuals manage their tasks and improve productivity.',
+    'featured image': "url('./images-desktop/to-do project.jpg')",
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
@@ -29,7 +29,7 @@ const projects = [
   {
     name: 'Data Dashboard Healthcare',
     description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works2.png',
+    'featured image': "url('./images-desktop/card-works2.png')",
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
@@ -38,16 +38,16 @@ const projects = [
   {
     name: 'Website Protfolio',
     description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works2.png',
+    'featured image': "url('./images-desktop/card-works3.png')",
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
     'card work class': 'card-works3',
   },
   {
-    name: 'Professional art Printing data',
+    name: 'Professional Art Printing Data',
     description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works1.png',
+    'featured image': "url('./images-desktop/card-works1.png')",
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
@@ -56,7 +56,7 @@ const projects = [
   {
     name: 'Data Dashboard Healthcare',
     description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works2.png',
+    'featured image': "url('./images-desktop/card-works2.png')",
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
@@ -65,7 +65,7 @@ const projects = [
   {
     name: 'Website Protfolio',
     description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works2.png',
+    'featured image': "url('./images-desktop/card-works3.png')",
     technologies: ['html-tag', 'bootstrap-tag', 'ruby-tag'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
@@ -77,6 +77,7 @@ const grid1 = document.querySelector('.grid-container1');
 for (let i = 0; i < projects.length; i += 1) {
   const cardwork = document.createElement('div');
   cardwork.className = projects[i]['card work class'];
+  cardwork.style.backgroundImage = 'linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%),'+ projects[i]['featured image'];
   grid1.appendChild(cardwork);
   const frame43 = document.createElement('div');
   frame43.className = 'frame43-right-block flex';
@@ -128,12 +129,12 @@ const projects2 = [
     'card work class': 'card-works1',
   },
   {
-    name: 'Professional art Printing data',
-    description: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works1.png',
+    name: 'To-Do List Web Application',
+    description: 'A to-do list app is a web application designed to help individuals manage their tasks and improve productivity.The app typically allows users to add ,remove and track progress towards list items completion.',
+    'featured image': './images-desktop/To-Do-List-1.jpg',
     technologies: ['html', 'bootstrap', 'ruby'],
-    'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
-    'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
+    'link to live version': 'https://torobucci.github.io/To-Do-List/dist',
+    'link to source': 'https://github.com/torobucci/To-Do-List',
     'li class': ['html-tag', 'bootstrap-tag', 'ruby-tag'],
     'card work class': 'card-works1',
   },
@@ -200,16 +201,16 @@ seeProject.forEach((el, i) => {
           </ul>
       </div>
       <div class="popup-content">
-          <img id="snapshot-portfolio" src="./images/Snapshoot Portfolio.png" alt="Snapshoot Portfolio">
+          <img id="snapshot-portfolio" src=${projects2[i]['featured image']} alt="Snapshoot Portfolio">
           <div class="popup-content-text flex">
               <p>${projects2[i].description}</p>
   
               <div class="popup-content-text-btn flex">
                   <button type="button" class="pop-btn flex"><a
-                          href="https://torobucci.github.io/Portfolio-finish-mobile-version/">See live</a><img
+                          href=${projects2[i]['link to live version']}>See live</a><img
                           src="./images-desktop/Icon-see live.svg" alt=""></button>
                   <button type="button" class="pop-btn"><a
-                          href="https://github.com/torobucci/Portfolio-finish-mobile-version">See source</a><img
+                          href=${projects2[i]['link to source']}>See source</a><img
                           src="./images-desktop/Icon-see-source.svg" alt=""></button>
   
               </div>
