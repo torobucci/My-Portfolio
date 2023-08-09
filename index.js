@@ -1,4 +1,5 @@
 const faBars = document.querySelector('.fa-bars');
+const header = document.querySelector('.main-header');
 const main = document.querySelector('.main');
 const menuToggle = document.querySelector('.menu-toggle');
 const menuToggleAnchor = document.querySelector('.toggle-ul');
@@ -6,13 +7,15 @@ const menuToggleAnchor = document.querySelector('.toggle-ul');
 faBars.addEventListener('click', () => {
   faBars.classList.toggle('fa-xmark');
   main.classList.toggle('none');
+  header.classList.toggle('fixed');
   menuToggle.classList.toggle('menu-toggle-height');
 });
 
 menuToggleAnchor.addEventListener('click', () => {
-  faBars.classList.toggle('fa-xmark');
-  main.classList.toggle('none');
   menuToggle.classList.toggle('menu-toggle-height');
+  faBars.classList.toggle('fa-xmark');
+  header.classList.toggle('fixed');
+  main.classList.toggle('none');
 });
 
 const projects = [
@@ -24,7 +27,7 @@ const projects = [
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
     'li class': ['html-tag', 'bootstrap-tag', 'ruby-tag'],
-    'card work class': 'card-works1',
+    'card work class': 'card-works1 cw',
   },
   {
     name: 'Data Dashboard Healthcare',
@@ -33,7 +36,7 @@ const projects = [
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
-    'card work class': 'card-works2',
+    'card work class': 'card-works2 cw',
   },
   {
     name: 'Website Protfolio',
@@ -42,7 +45,7 @@ const projects = [
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
-    'card work class': 'card-works3',
+    'card work class': 'card-works3 cw',
   },
   {
     name: 'Professional Art Printing Data',
@@ -51,7 +54,7 @@ const projects = [
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
-    'card work class': 'card-works1',
+    'card work class': 'card-works1 cw',
   },
   {
     name: 'Data Dashboard Healthcare',
@@ -60,7 +63,7 @@ const projects = [
     technologies: ['html', 'bootstrap', 'ruby'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
-    'card work class': 'card-works2',
+    'card work class': 'card-works2 cw',
   },
   {
     name: 'Website Protfolio',
@@ -69,7 +72,7 @@ const projects = [
     technologies: ['html-tag', 'bootstrap-tag', 'ruby-tag'],
     'link to live version': 'https://torobucci.github.io/Portfolio-finish-mobile-version/',
     'link to source': 'https://github.com/torobucci/Portfolio-finish-mobile-version',
-    'card work class': 'card-works3',
+    'card work class': 'card-works3 cw',
   },
 
 ];
@@ -204,18 +207,18 @@ seeProject.forEach((el, i) => {
           <img id="snapshot-portfolio" src=${projects2[i]['featured image']} alt="Snapshoot Portfolio">
           <div class="popup-content-text flex">
               <p>${projects2[i].description}</p>
-  
+
               <div class="popup-content-text-btn flex">
                   <button type="button" class="pop-btn flex"><a
                           href=${projects2[i]['link to live version']}>See live</a><img
                           src="./images-desktop/Icon-see live.svg" alt=""></button>
-                  <button type="button" class="pop-btn"><a
+                  <button type="button" class="pop-btn flex"><a
                           href=${projects2[i]['link to source']}>See source</a><img
                           src="./images-desktop/Icon-see-source.svg" alt=""></button>
-  
+
               </div>
           </div>
-  
+
       </div>
   </div>
   </div>`);
