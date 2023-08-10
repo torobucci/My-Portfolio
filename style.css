@@ -25,7 +25,8 @@ h1 {
 }
 
 h1,
-p, ul {
+p,
+ul {
   margin: 0;
 }
 
@@ -55,7 +56,7 @@ header a {
   color: #fff;
 }
 
-.fixed{
+.fixed {
   position: fixed;
   z-index: 5;
   width: 100%;
@@ -69,7 +70,7 @@ header a {
   cursor: pointer;
 }
 
-.fa-xmark{
+.fa-xmark {
   position: absolute;
   top: 1rem;
   right: -3%;
@@ -158,18 +159,6 @@ header a {
 }
 
 /* no-descending specificity rule */
-.tags1 li {
-  background: rgba(255, 255, 255, 0.24);
-}
-
-.tags a {
-  color: #091e42;
-}
-
-.tags1 li a {
-  color: #fff;
-}
-
 .social-media ul li {
   margin-right: 12px;
 }
@@ -200,9 +189,24 @@ header a {
   margin-bottom: 60px;
 }
 
+#snapshot-portfolio,
+.featured-img img {
+  border: 1px solid #cccbcb;
+  border-radius: 0.8rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Adding the box shadow */
+  transition: transform 1s;
+}
+
+.featured-img img:hover {
+  cursor: grab;
+  transform: scale(1.15);
+}
+
 .right-block {
   flex-direction: column;
   padding: 0;
+  gap: 1rem;
   align-self: center;
   align-items: center
 }
@@ -231,6 +235,16 @@ header a {
   align-items: center;
   padding: 0;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tags-btn {
+  padding: 0.05rem 0.7rem;
+  transition: transform 1s;
+}
+
+.tags-btn:hover {
+  transform: scale(1.1);
 }
 
 .css-tag {
@@ -277,10 +291,6 @@ header a {
   line-height: 20px;
 }
 
-.pop-btn:hover a{
-  color: #f55800;
-}
-
 .ruby-tag {
   display: flex;
   justify-content: center;
@@ -296,9 +306,9 @@ header a {
   line-height: 20px;
 }
 
-#multipost-btn {
-  width: 124px;
-  height: 48px;
+#bookflix-btn {
+  width: 130px;
+  padding: 0.35rem 0.5rem;
 }
 
 .grid-container1 {
@@ -319,21 +329,18 @@ header a {
 
 .see-project-btn1 {
   width: 100%;
-  text-align: center;
   font-family: "Inter", serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 15px;
   letter-spacing: 0.03em;
   color: #fff;
   background: #ff6b00;
-  height: 48px;
   border: none;
-  transition: background-color, color 3s ease 0.25s;
+  box-shadow: 1px 5px 9px rgba(241, 96, 1, 0.32);
 }
 
-.cw{
+.cw {
   max-width: 400px;
 }
 
@@ -609,15 +616,22 @@ button :enabled {
   background: #f55800;
 }
 
-button:hover {
-  color: #f55800;
-  background: #fff5e1;
-  border: 1px solid #f55800;
+.btn:first-child:active, .btn:first-child:active {
+  background: #e05304;
+  color: #fff;
+}
+:not(.btn-check)+.btn:active{
+  background: #e05304;
+  color: #fff;
+}
+.pop-btn:hover,.see-project-btn1:hover {
+  background-color: #f55800;
+  color: #fff;
 }
 
-button:active {
+.pop-btn:active,.see-project-btn1:active {
   background: #e05304;
-  color: #f4f1f0;
+  color: #fff;
 }
 
 .form-section {
@@ -770,6 +784,10 @@ footer {
   margin: 18px;
   background-color: white;
   overflow-y: auto;
+  border-radius: 0.4rem;
+  position: relative;
+  top: 52%;
+  transform: translateY(-50%);
 }
 
 .show {
@@ -813,13 +831,18 @@ footer {
 
 #snapshot-portfolio {
   width: 100%;
-  object-fit: cover;
+}
+
+#snapshot-portfolio:hover {
+  cursor: grab;
+  transform: scale(1.02);
 }
 
 .popup-content-text {
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
 }
 
 .popup-content-text p {
@@ -833,13 +856,13 @@ footer {
 }
 
 .popup-content-text-btn {
-  justify-content: space-between;
+  gap: 2.5rem;
 }
 
 .pop-btn {
   align-items: center;
   column-gap: 0.8em;
-  background: #f55800;
+  background: #ff6b00;
   border: none;
   font-family: 'Inter', serif;
   font-style: normal;
@@ -847,7 +870,7 @@ footer {
   font-size: 0.8rem;
   line-height: 24px;
   letter-spacing: 0.08rem;
-  padding: 2px 6px;
+  padding: 0.25em 0.5em;
   color: #fff;
   transition: all, color 1s ease 0.25s;
 }
@@ -902,14 +925,14 @@ small {
   .headline-section {
     background-image: url("./images-desktop/Illustration-header\ \(1\).png");
     background-position: bottom right;
-    background-size:33% 80%;
+    background-size: 33% 80%;
   }
 
   .headline {
     margin-left: 10%;
   }
 
-  .supporting-text1{
+  .supporting-text1 {
     max-width: 80%;
   }
 
@@ -936,7 +959,7 @@ small {
     margin: 0;
   }
 
-  .about-me{
+  .about-me {
     padding-left: 4.475rem;
     display: flex;
     flex-direction: column;
@@ -976,7 +999,6 @@ small {
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
-    color: #3c3a39;
   }
 
   .skill ul li {
@@ -1021,9 +1043,6 @@ small {
     height: 85%;
     margin: auto;
     background-color: white;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   #snapshot-portfolio {
@@ -1045,6 +1064,10 @@ small {
     flex-direction: row;
   }
 
+  .featured-img img {
+    width: 60%;
+  }
+
   .grid-container1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1053,11 +1076,11 @@ small {
     row-gap: 40px;
   }
 
-  .grid-container1 > div:nth-child(1n) {
+  .grid-container1>div:nth-child(1n) {
     width: 100%;
   }
 
-  .grid-container1 > div:nth-child(3n) {
+  .grid-container1>div:nth-child(3n) {
     justify-self: start;
     width: 100%;
   }
