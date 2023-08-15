@@ -58,7 +58,7 @@ const projects = [
     name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    'featured image': "url('./images-desktop/Awesomebooks.jpg')",
+    'featured image': "url('./images-desktop/awesomeBooks.jpg')",
     technologies: ['html5', 'javascript', 'css3'],
   },
 ];
