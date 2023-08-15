@@ -1,103 +1,101 @@
-const faBars = document.querySelector(".fa-bars");
-const header = document.querySelector(".main-header");
-const main = document.querySelector(".main");
-const menuToggle = document.querySelector(".menu-toggle");
-const menuToggleAnchor = document.querySelector(".toggle-ul");
+const faBars = document.querySelector('.fa-bars');
+const header = document.querySelector('.main-header');
+const main = document.querySelector('.main');
+const menuToggle = document.querySelector('.menu-toggle');
+const menuToggleAnchor = document.querySelector('.toggle-ul');
 
-faBars.addEventListener("click", () => {
-  faBars.classList.toggle("fa-xmark");
-  main.classList.toggle("none");
-  header.classList.toggle("fixed");
-  menuToggle.classList.toggle("menu-toggle-height");
+faBars.addEventListener('click', () => {
+  faBars.classList.toggle('fa-xmark');
+  main.classList.toggle('none');
+  header.classList.toggle('fixed');
+  menuToggle.classList.toggle('menu-toggle-height');
 });
 
-menuToggleAnchor.addEventListener("click", () => {
-  menuToggle.classList.toggle("menu-toggle-height");
-  faBars.classList.toggle("fa-xmark");
-  header.classList.toggle("fixed");
-  main.classList.toggle("none");
+menuToggleAnchor.addEventListener('click', () => {
+  menuToggle.classList.toggle('menu-toggle-height');
+  faBars.classList.toggle('fa-xmark');
+  header.classList.toggle('fixed');
+  main.classList.toggle('none');
 });
 
 const projects = [
   {
-    name: "Space Travellers",
+    name: 'Space Travellers',
     description:
-      "Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.",
-    "featured image": "url('./images-desktop/spacetravellers.jpg')",
-    technologies: ["react", "bootstrap", "apis"],
+      'Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.',
+    'featured image': "url('./images-desktop/spacetravellers.jpg')",
+    technologies: ['react', 'bootstrap', 'apis'],
   },
   {
-    name: "Budget Buddy",
+    name: 'Budget Buddy',
     description:
       'Budget_App is a ruby on rails application that allow users to budget their money effectively. It utilizes devise gem for proper user authentication. User can add a category and see expenses on that category.',
-    "featured image": "url('./images-desktop/budget1.jpg')",
-    technologies: ["ruby", "rails", "devise","postgresql"],
+    'featured image': "url('./images-desktop/budget1.jpg')",
+    technologies: ['ruby', 'rails', 'devise', 'postgresql'],
   },
   {
-    name: "GlobalGroove Concert",
+    name: 'GlobalGroove Concert',
     description:
      'Global Groove Concert is a website project advertising a concert event by Global Groove. Its displays the main program events, featured artists and info about the organization',
-    "featured image": "url('./images-desktop/concert.jpg')",
-    technologies: ["html5", "css3", "javascript"],
+    'featured image': "url('./images-desktop/concert.jpg')",
+    technologies: ['html5', 'css3', 'javascript'],
   },
   {
-    name: "Leaderboard",
+    name: 'Leaderboard',
     description:
       'Leaderboard is a project that display ThunderSlap game current rankings. It enables a new player to add their score and display current scores when the refresh button is clicked.',
-    "featured image": "url('./images-desktop/leaderboard.jpg')",
-    technologies: ["html5", "css3", "javascript", "APIs"],
+    'featured image': "url('./images-desktop/leaderboard.jpg')",
+    technologies: ['html5', 'css3', 'javascript', 'APIs'],
   },
   {
-    name: "Math Magicians",
+    name: 'Math Magicians',
     description:
       'Math Magicians is a calculator web app built using React that allow users to perform basic math operations and display results. It has an added feature of displaying quotes fetched from an API.',
-    "featured image": "url('./images-desktop/math_magicians.jpg')",
-    technologies: ["react", "css3", "APIs"],
+    'featured image': "url('./images-desktop/math_magicians.jpg')",
+    technologies: ['react', 'css3', 'APIs'],
   },
   {
-    name: "Awesome Books",
+    name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    "featured image": "url('./images-desktop/Awesomebooks.jpg')",
-    technologies: ["html5", "javascript", "css3"],
+    'featured image': "url('./images-desktop/Awesomebooks.jpg')",
+    technologies: ['html5', 'javascript', 'css3'],
   },
 ];
-const grid1 = document.querySelector(".grid-container1");
+const grid1 = document.querySelector('.grid-container1');
 for (let i = 0; i < projects.length; i += 1) {
-  const cardwork = document.createElement("div");
-  cardwork.className = "cw";
-  cardwork.style.backgroundImage =
-    "linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%)," +
-    projects[i]["featured image"];
+  const cardwork = document.createElement('div');
+  cardwork.className = 'cw';
+  cardwork.style.backgroundImage = `linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%),${
+    projects[i]['featured image']}`;
   grid1.appendChild(cardwork);
 
-  const cardOverlay = document.createElement("div");
-  cardOverlay.className = "card-overlay";
-  const button = document.createElement("button");
-  button.textContent = "See Project";
-  button.className = "see-project-btn1 btn";
-  button.type = "button";
+  const cardOverlay = document.createElement('div');
+  cardOverlay.className = 'card-overlay';
+  const button = document.createElement('button');
+  button.textContent = 'See Project';
+  button.className = 'see-project-btn1 btn';
+  button.type = 'button';
   cardOverlay.appendChild(button);
   cardwork.appendChild(cardOverlay);
 
-
-  const frame43 = document.createElement("div");
-  frame43.className = "frame43-right-block flex";
+  const frame43 = document.createElement('div');
+  frame43.className = 'frame43-right-block flex';
   cardwork.appendChild(frame43);
-  const h2 = document.createElement("h2");
-  h2.className = "title-post1";
+  const h2 = document.createElement('h2');
+  h2.className = 'title-post1';
   h2.textContent = projects[i].name;
   frame43.appendChild(h2);
-  const p = document.createElement("p");
-  p.className = "supporting-text2";
+  const p = document.createElement('p');
+  p.className = 'supporting-text2';
   p.textContent = projects[i].description;
   frame43.appendChild(p);
-  const ul = document.createElement("ul");
-  ul.className = "tags flex";
+  const ul = document.createElement('ul');
+  ul.className = 'tags flex';
   frame43.appendChild(ul);
 
   for (let j = 0; j < projects[i].technologies.length; j += 1) {
-    const li = document.createElement("li");
+    const li = document.createElement('li');
     li.textContent = projects[i].technologies[j];
     li.className = 'btn btn-outline-secondary tags-btn';
     ul.appendChild(li);
@@ -106,9 +104,9 @@ for (let i = 0; i < projects.length; i += 1) {
 
 /* POP UP WINDOW */
 /* const popupWindow = document.querySelector('.popup-window'); */
-const bodycontent = document.querySelector(".body");
+const bodycontent = document.querySelector('.body');
 function elementFromHtml(html) {
-  const template = document.createElement("template");
+  const template = document.createElement('template');
 
   template.innerHTML = html.trim();
 
@@ -116,88 +114,88 @@ function elementFromHtml(html) {
 }
 const projects2 = [
   {
-    name: "BookFlix Application",
+    name: 'BookFlix Application',
     description:
-      "BookFlix is a web applications that allow users to book reservations for movies cast in a cinema. User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations. Admins can add or delete movies.",
-    "featured image": "./images-desktop/bookflix.jpg",
-    technologies: ["react", "bootstrap", "ruby", "ruby on rails"],
-    "link to live version": "https://book-flix-frontend.vercel.app/",
-    "link to source": "https://github.com/torobucci/BookFlix-Backend",
+      'BookFlix is a web applications that allow users to book reservations for movies cast in a cinema. User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations. Admins can add or delete movies.',
+    'featured image': './images-desktop/bookflix.jpg',
+    technologies: ['react', 'bootstrap', 'ruby', 'ruby on rails'],
+    'link to live version': 'https://book-flix-frontend.vercel.app/',
+    'link to source': 'https://github.com/torobucci/BookFlix-Backend',
   },
   {
-    name: "Space Travelers",
-    description:"Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.",
-    "featured image": "./images-desktop/spacetravellers1.jpg",
-    technologies: ["react", "redux", "bootstrap5", "apis"],
-    "link to live version": "https://space-travelers-hib.onrender.com/",
-    "link to source": "https://github.com/torobucci/space-travelers",
+    name: 'Space Travelers',
+    description: 'Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.',
+    'featured image': './images-desktop/spacetravellers1.jpg',
+    technologies: ['react', 'redux', 'bootstrap5', 'apis'],
+    'link to live version': 'https://space-travelers-hib.onrender.com/',
+    'link to source': 'https://github.com/torobucci/space-travelers',
   },
   {
-    name: "Budget Buddy",
+    name: 'Budget Buddy',
     description:
     'Budget_App is a ruby on rails application that allow users to budget their money effectively. It utilizes devise gem for proper user authentication. User can add a category and see expenses on that category',
-    "featured image": "./images-desktop/budget.jpg",
-    technologies: ["ruby", "rails", "devise","postgresql"],
-    "link to live version": "https://budgetbuddy-xwce.onrender.com/",
-    "link to source": "https://github.com/torobucci/Budget_app",
+    'featured image': './images-desktop/budget.jpg',
+    technologies: ['ruby', 'rails', 'devise', 'postgresql'],
+    'link to live version': 'https://budgetbuddy-xwce.onrender.com/',
+    'link to source': 'https://github.com/torobucci/Budget_app',
   },
   {
-    name: "GlobalGroove Concert",
+    name: 'GlobalGroove Concert',
     description:
       'Global Groove Concert is a website project advertising a concert event by Global Groove. Its displays the main program events, featured artists and info about the organization',
-    "featured image": "./images-desktop/concert1.jpg",
-    technologies: ["html5", "css3", "javascript"],
-    "link to live version":
-      "https://torobucci.github.io/GlobalGroove-Concert/",
-    "link to source":
-      "https://github.com/torobucci/GlobalGroove-Concert",
+    'featured image': './images-desktop/concert1.jpg',
+    technologies: ['html5', 'css3', 'javascript'],
+    'link to live version':
+      'https://torobucci.github.io/GlobalGroove-Concert/',
+    'link to source':
+      'https://github.com/torobucci/GlobalGroove-Concert',
   },
   {
-    name: "Leaderboard",
+    name: 'Leaderboard',
     description:
       'Leaderboard is a project that display ThunderSlap game current rankings. It enables a new player to add their score and display current scores when the refresh button is clicked.',
-      "featured image": "./images-desktop/leaderboard1.jpg",
-    technologies: ["html5", "css3", "javascript", "APIs"],
-    "link to live version":
-      "https://torobucci.github.io/Leaderboard/dist/",
-    "link to source":
-      "https://github.com/torobucci/Leaderboard",
+    'featured image': './images-desktop/leaderboard1.jpg',
+    technologies: ['html5', 'css3', 'javascript', 'APIs'],
+    'link to live version':
+      'https://torobucci.github.io/Leaderboard/dist/',
+    'link to source':
+      'https://github.com/torobucci/Leaderboard',
   },
   {
-    name: "Math Magicians",
+    name: 'Math Magicians',
     description:
       'Math Magicians is a calculator web app built using React that allow users to perform basic math operations and display results. It has an added feature of displaying quotes fetched from an API.',
-    "featured image": './images-desktop/math_magicians1.jpg',
-    technologies: ["react", "css3", "APIs"],
-    "link to live version":
-      "https://math-magicians-ga6o.onrender.com/",
-    "link to source":
-      "https://github.com/torobucci/math-magicians",
+    'featured image': './images-desktop/math_magicians1.jpg',
+    technologies: ['react', 'css3', 'APIs'],
+    'link to live version':
+      'https://math-magicians-ga6o.onrender.com/',
+    'link to source':
+      'https://github.com/torobucci/math-magicians',
   },
   {
-    name: "Awesome Books",
+    name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    "featured image": "./images-desktop/awesomeBooks1.jpg",
-    technologies: ["html", "javascript", "css3"],
-    "link to live version":
-      "https://torobucci.github.io/Awesomebooks-Modules/",
-    "link to source":
-      "https://github.com/torobucci/Awesomebooks-Modules",
+    'featured image': './images-desktop/awesomeBooks1.jpg',
+    technologies: ['html', 'javascript', 'css3'],
+    'link to live version':
+      'https://torobucci.github.io/Awesomebooks-Modules/',
+    'link to source':
+      'https://github.com/torobucci/Awesomebooks-Modules',
   },
   {
-    name: "Website Protfolio",
+    name: 'Website Protfolio',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    "featured image": "./images-desktop/card-works2.png",
-    technologies: ["html-tag", "bootstrap-tag", "ruby-tag"],
-    "link to live version":
-      "https://torobucci.github.io/Portfolio-finish-mobile-version/",
-    "link to source":
-      "https://github.com/torobucci/Portfolio-finish-mobile-version",
+    'featured image': './images-desktop/card-works2.png',
+    technologies: ['html-tag', 'bootstrap-tag', 'ruby-tag'],
+    'link to live version':
+      'https://torobucci.github.io/Portfolio-finish-mobile-version/',
+    'link to source':
+      'https://github.com/torobucci/Portfolio-finish-mobile-version',
   },
 ];
-const seeProject = document.querySelectorAll(".see-project-btn1");
+const seeProject = document.querySelectorAll('.see-project-btn1');
 seeProject.forEach((el, i) => {
   const popupWindow = elementFromHtml(`<div class="popup-window">
   <div class="popup-window-content">
@@ -208,15 +206,13 @@ seeProject.forEach((el, i) => {
           </div>
           <ul class="top-content-tag flex tags">
            ${projects2[i].technologies
-            .map((tech) => {
-              return `<li class='btn btn-secondary tags-btn'>${tech}</li>`;
-            }).join("")}
+    .map((tech) => `<li class='btn btn-secondary tags-btn'>${tech}</li>`).join('')}
           </ul>
       </div>
       <div class="popup-content">
           <img id="snapshot-portfolio" src=${
-            projects2[i]["featured image"]
-          } alt="Snapshoot Portfolio">
+  projects2[i]['featured image']
+} alt="Snapshoot Portfolio">
           <div class="popup-content-text flex">
               <p>${projects2[i].description}</p>
 
@@ -224,14 +220,14 @@ seeProject.forEach((el, i) => {
                   <button type="button" class="pop-btn btn flex"><a
                           target="_blank"
                           href=${
-                            projects2[i]["link to live version"]
-                          }>See live</a><img
+  projects2[i]['link to live version']
+}>See live</a><img
                           src="./images-desktop/Icon-see live.svg" alt=""></button>
                   <button type="button" class="pop-btn btn flex"><a
                           target="_blank"
                           href=${
-                            projects2[i]["link to source"]
-                          }>See source</a><img
+  projects2[i]['link to source']
+}>See source</a><img
                           src="./images-desktop/Icon-see-source.svg" alt=""></button>
 
               </div>
@@ -241,52 +237,52 @@ seeProject.forEach((el, i) => {
   </div>
   </div>`);
 
-  el.addEventListener("click", () => {
+  el.addEventListener('click', () => {
     bodycontent.appendChild(popupWindow);
-    popupWindow.classList.toggle("show");
-    bodycontent.classList.toggle("body-overflow");
-    const faX = document.querySelector(".fa-x");
-    faX.addEventListener("click", () => {
+    popupWindow.classList.toggle('show');
+    bodycontent.classList.toggle('body-overflow');
+    const faX = document.querySelector('.fa-x');
+    faX.addEventListener('click', () => {
       if (bodycontent.contains(popupWindow)) {
         bodycontent.removeChild(popupWindow);
-        popupWindow.classList.toggle("show");
-        bodycontent.classList.toggle("body-overflow");
+        popupWindow.classList.toggle('show');
+        bodycontent.classList.toggle('body-overflow');
       }
     });
   });
 });
 
 /* FORM VALIDATION && LOCAL STORAGE */
-const form = document.querySelector("form");
-const emailInput = document.querySelector("#email");
-const userName = document.getElementById("name");
-const message = document.getElementById("message");
-const error = document.querySelector(".error");
-form.addEventListener("submit", (e) => {
+const form = document.querySelector('form');
+const emailInput = document.querySelector('#email');
+const userName = document.getElementById('name');
+const message = document.getElementById('message');
+const error = document.querySelector('.error');
+form.addEventListener('submit', (e) => {
   const emailRegex = /[A-Z]+/;
   const emailValue = emailInput.value;
   if (emailRegex.test(emailValue)) {
-    error.querySelector("p").textContent = "Form not submitted";
-    error.querySelector("small").textContent =
-      "Please ensure your email is in lowercase";
+    error.querySelector('p').textContent = 'Form not submitted';
+    error.querySelector('small').textContent = 'Please ensure your email is in lowercase';
     setTimeout(() => {
-      error.querySelector("p").textContent = "";
-      error.querySelector("small").textContent = "";
+      error.querySelector('p').textContent = '';
+      error.querySelector('small').textContent = '';
     }, 5000);
     e.preventDefault();
   }
+  localStorage.clear();
 });
 
 function populateStorage() {
-  const data = { name: "", email: "", message: "" };
+  const data = { name: '', email: '', message: '' };
   data.name = userName.value;
   data.email = emailInput.value;
   data.message = message.value;
   const storageData = JSON.stringify(data);
-  localStorage.setItem("Form Data", storageData);
+  localStorage.setItem('Form Data', storageData);
 }
 function refillValue() {
-  const currentData = localStorage.getItem("Form Data");
+  const currentData = localStorage.getItem('Form Data');
   const currentDataObj = JSON.parse(currentData);
   userName.value = currentDataObj.name;
   emailInput.value = currentDataObj.email;
@@ -295,7 +291,7 @@ function refillValue() {
 userName.onchange = populateStorage;
 emailInput.onchange = populateStorage;
 message.onchange = populateStorage;
-if (!localStorage.getItem("Form Data")) {
+if (!localStorage.getItem('Form Data')) {
   populateStorage();
 } else {
   refillValue();

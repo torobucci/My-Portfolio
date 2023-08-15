@@ -75,7 +75,7 @@ header a {
   right: 24px;
 }
 
-.fa-x{
+.fa-x {
   position: absolute;
   top: 16px;
   right: 18px;
@@ -201,7 +201,8 @@ header a {
 .featured-img img {
   border: 1px solid #cccbcb;
   border-radius: 0.8rem;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
   /* Adding the box shadow */
   transition: transform 1s;
 }
@@ -216,7 +217,7 @@ header a {
   padding: 0;
   gap: 1rem;
   align-self: center;
-  align-items: center
+  align-items: center;
 }
 
 .title-post {
@@ -300,7 +301,7 @@ header a {
   overflow: hidden;
   width: 100%;
   height: 0;
-  transition: .3s ease;
+  transition: 0.3s ease;
   border-radius: 5px;
 }
 
@@ -319,13 +320,13 @@ header a {
   background-size: cover;
   width: 90%;
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.37);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.37);
   cursor: grab;
-  transition: transform .8s;
+  transition: transform 0.8s;
   border: 1px solid whitesmoke;
 }
 
-.cw:hover{
+.cw:hover {
   transform: scale(1.1);
 }
 
@@ -399,7 +400,8 @@ header a {
   color: #f4f5f7;
 }
 
-.get-my-resume, .get-in-touch {
+.get-my-resume,
+.get-in-touch {
   width: 10rem;
   font-family: "Inter", serif;
   font-style: normal;
@@ -408,7 +410,7 @@ header a {
   background-color: #ff6b00;
   color: #fff;
   border: none;
-  box-shadow: 0px 0px 7px rgba(241, 96, 1, 0.32);
+  box-shadow: 0 0 7px rgba(241, 96, 1, 0.32);
 }
 
 .divider {
@@ -518,20 +520,12 @@ button :enabled {
   background: #f55800;
 }
 
-.btn:first-child:active, .btn:first-child:active {
+.btn:first-child:active {
   background: #e05304;
-  color: #fff;
-}
-:not(.btn-check)+.btn:active{
-  background: #e05304;
-  color: #fff;
-}
-.pop-btn:hover,.see-project-btn1:hover,.get-my-resume:hover, .get-in-touch:hover {
-  background-color: #f55800;
   color: #fff;
 }
 
-.pop-btn:active,.see-project-btn1:active, .get-my-resume:active, .get-in-touch:active {
+:not(.btn-check) + .btn:active {
   background: #e05304;
   color: #fff;
 }
@@ -581,12 +575,18 @@ textarea {
   background: #fbf8f7;
 }
 
+input::placeholder,
+textarea::placeholder {
+  transition: transform 0.3s ease-in-out;
+}
+
 input,
 textarea:focus {
   outline: none;
 }
 
-input:hover::placeholder {
+input:hover::placeholder,
+textarea:hover::placeholder {
   transform: translate(10px);
 }
 
@@ -759,6 +759,22 @@ footer {
   padding: 0.55em 0.6em;
   color: #fff;
   box-shadow: 1px 5px 9px rgba(241, 96, 1, 0.32);
+}
+
+.pop-btn:hover,
+.see-project-btn1:hover,
+.get-my-resume:hover,
+.get-in-touch:hover {
+  background-color: #f55800;
+  color: #fff;
+}
+
+.pop-btn:active,
+.see-project-btn1:active,
+.get-my-resume:active,
+.get-in-touch:active {
+  background: #e05304;
+  color: #fff;
 }
 
 .flex {
@@ -949,7 +965,11 @@ small {
   }
 }
 
-@media screen and (min-width:1345px) {
+@media screen and (min-width: 1345px) {
+  .headline-section {
+    background-size: 26% 78%;
+  }
+
   .about-me-div {
     background-size: 32.5% 40%;
   }
@@ -978,11 +998,11 @@ small {
     row-gap: 40px;
   }
 
-  .grid-container1>div:nth-child(1n) {
+  .grid-container1 > div:nth-child(1n) {
     width: 100%;
   }
 
-  .grid-container1>div:nth-child(3n) {
+  .grid-container1 > div:nth-child(3n) {
     justify-self: start;
     width: 100%;
   }
