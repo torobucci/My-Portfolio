@@ -7,26 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Torobucci's Portfolio</title>
     <script src="https://kit.fontawesome.com/198fcc7e17.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="body">
-    <header class="main-header flex">
-        <a href="#" id="header-a">Kevin Toro</a>
+    <header class="main-header flex fixed">
+        <a href="#headline-section" id="header-a">Kevin Toro</a>
         <nav>
             <ul class="desktop-header-nav">
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#"><img src="./images-desktop/Union.png" alt=""></a></li>
+                <li><a href="#work-section">Projects</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#form-section">Contact</a></li>
             </ul>
         </nav>
         <i class="fa-solid fa-bars"></i>
     </header>
     <div class="menu-toggle">
         <ul class="toggle-ul">
-            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#headline-section">Portfolio</a></li>
-            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#about-me">About</a></li>
+            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#work-section">Projects</a></li>
+            <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#about-me">About Me</a></li>
             <li class="toggle-ul-li"><a class="toggle-ul-li-a" href="#form-section">Contact</a></li>
         </ul>
     </div>
@@ -34,38 +34,35 @@
         <section class="headline-section" id="headline-section">
             <div class="headline flex">
                 <div class="primary-text">
-                    <h1>Hey There. I’m Toro</h1>
+                    <h1>Hey There!</h1>
+                    <h1>I’m Toro.</h1>
                 </div>
                 <div class="supporting-text">
-                    <h2>I’m a Software Developer</h2>
+                    <h2>I’m a Full-stack Web Developer</h2>
                 </div>
                 <div class="description">
                     <p>
-                        I can help you build a product , feature or website Look through
-                        some of my work and experience! If you like what you see and have
-                        a project you need coded, don’t hestiate to contact me.
+                        I'm here to  transform your ideas into reality.
+                        Browse through my portfolio to explore my work.
+                        If you're intrigued and have a project in need of coding, let's connect. Your vision deserves to be brought to life.
                     </p>
                 </div>
                 <div class="social-media flex">
                     <ul class="flex">
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/torobucci" target="_blank">
                                 <img src="./images/github.png" alt="github-icon" /></a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="./images/twitter.png" alt="twitter-icon" /></a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/kevin-toroitich/" target="_blank">
                                 <img src="./images/linkedIn.png" alt="linkedIn-icon" /></a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://wellfound.com/u/kevin-toro-2" target="_blank">
                                 <img src="./images/angel list.png" alt="chill-icon" /></a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="mailto:kevintoro254@gmail.com?subject=Subject%20Here&body=Message%20Here" target="_blank">
                                 <img src="./images/M.png" alt="M-icon" />
                             </a>
                         </li>
@@ -76,28 +73,25 @@
         <section class="work-section " id="work-section">
             <div class="title-div">
                 <h2 class="title">My Recent Works</h2>
-                <div class="title-vector"></div>
             </div>
             <div class="featured-img flex">
-                <img src="./images-desktop/Img Placeholder(1).png" alt="Image placeholder">
+                <img src="./images-desktop/bookflix.jpg" alt="Image placeholder">
                 <div class="right-block flex">
-                    <h2 class="title-post">Multi-post Stories</h2>
+                    <h2 class="title-post">BookFlix Application</h2>
                     <p class="supporting-text1">
-                        A daily selection of privately personalized reads; no accounts or
-                        sign-ups required. has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a standard
-                        dummy text.
+                        BookFlix is a web applications that allow users to book reservations for movies cast in a cinema.
+                        User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations. Admins can add or delete movies.
                     </p>
                     <nav>
                         <ul class="tags flex">
-                            <li class="css-tag"><a href="#">css</a></li>
-                            <li class="html-tag"><a href="#">html</a></li>
-                            <li class="bootstrap-tag"><a href="#">bootstrap</a></li>
-                            <li class="ruby-tag"><a href="#">ruby</a></li>
+                            <li class="btn btn-secondary tags-btn">react</li>
+                            <li class="btn btn-secondary tags-btn">bootstrap</li>
+                            <li class="btn btn-secondary tags-btn">ruby</li>
+                            <li class="btn btn-secondary tags-btn">ruby on rails</li>
                         </ul>
                     </nav>
 
-                    <button type="submit" class="see-project-btn1" id="multipost-btn">See Project</button>
+                    <button type="submit" class="see-project-btn1 btn" id="bookflix-btn">See Project</button>
                 </div>
             </div>
             <div class="grid-container1 flex">
@@ -107,12 +101,11 @@
             <div class="about-me-div flex">
                 <h2>About me</h2>
                 <p>
-                    Hello I’m a software developer! I can help you build a product ,
-                    feature or website Look through some of my work and experience! If
-                    you like what you see and have a project you need coded, don’t
-                    hestiate to contact me.
+                    Hello Again! I'm Kevin Toroitich, affectionately known as Toro. My love for playing chess isn't just about the game; it's about embracing the intricate dance of critical thinking and strategic planning that orchestrates victory. The similarity between chess and coding became vivid during my pursuit of a computer science degree and this ignited my passion for software development. This realization prompted me to dive headfirst into the world of software development and I landed on the doorstep of Microverse, a Bootcamp that became a crucible for refining my skills. Over the course of more than 20 collaborative projects, I honed my expertise, expanding my knowledge across an array of languages, frameworks, and tools shown below. As my software journey continues, I remain steadfast in my commitment to improvement through new challenges.
                 </p>
-                <button class="get-my-resume">Get My Resume</button>
+                <a href="./Resume - Kevin Toro.pdf" target="_blank" download="Resume - Kevin Toro.pdf" class="get-my-resume btn">
+                    Get My Resume
+                </a>
             </div>
             <div class="divider"></div>
             <div class="skill flex">
@@ -126,31 +119,27 @@
                 <ul>
                     <li class="topic1">Frameworks</li>
                     <li>Bootstrap</li>
+                    <li>React</li>
                     <li>Ruby On Rails</li>
-                    <li>RSPec</li>
-                    <li>CapyBara</li>
-                    <li>Selenium</li>
                 </ul>
                 <ul>
-                    <li class="topic2">Skills</li>
-                    <li>Codekit</li>
+                    <li class="topic2">Tools</li>
+                    <li>Git</li>
                     <li>Github</li>
-                    <li>Codepen</li>
                     <li>Gitlab</li>
-                    <li>Terminal</li>
                 </ul>
             </div>
         </section>
         <section class="form-section" id="form-section">
             <p class="form-text">
-                I'm always interested in hearing about new projects, so if you'd like to chat please get in touch.
+                I'm endlessly intrigued by fresh projects. If discussing your endeavors excites you, let's connect.
             </p>
             <form action="https://formspree.io/f/xwkjpnaw" method="post">
                 <input id="name" type="text" name="name" minlength="9" placeholder="Full Name" maxlength="30" required>
                 <input id="email" type="email" name="email" placeholder="Email address" required>
                 <textarea id="message" name="comment" id="textarea" minlength="10" placeholder="Enter text here"
                     maxlength="300" required></textarea>
-                <button type="submit" class="get-in-touch">Get in touch</button>
+                <button type="submit" class="get-in-touch btn">Get in touch</button>
                 <div class="error">
                     <p></p>
                     <small></small>
@@ -161,23 +150,20 @@
         <footer>
             <ul class="footer-ul flex">
                 <li class="footer-li">
-                    <a href="#">
+                    <a href="https://github.com/torobucci" target="_blank">
                         <img src="./images/github(1).png" alt="github-icon" /></a>
                 </li>
                 <li class="footer-li">
-                    <a href="#">
-                        <img src="./images/twitter(1).png" alt="twitter-icon" /></a>
-                </li>
-                <li class="footer-li">
-                    <a href="#">
+                    <a href="https://www.linkedin.com/in/kevin-toro-047181238/" target="_blank">
                         <img src="./images/linkedIn(1).png" alt="linkedIn-icon" /></a>
                 </li>
                 <li class="footer-li">
-                    <a href="#">
-                        <img src="./images/angelist (1).png" alt="chill-icon" /></a>
+                    <a href="https://wellfound.com/u/kevin-toro-2" target="_blank">
+                        <img src="./images/angelist (1).png" alt="chill-icon" />
+                    </a>
                 </li>
                 <li class="footer-li">
-                    <a href="#">
+                    <a href="mailto:kevintoro254@gmail.com?subject=Subject%20Here&body=Message%20Here" target="_blank">
                         <img src="./images/M(1).png" alt="M-icon" />
                     </a>
                 </li>
@@ -189,6 +175,7 @@
         </footer>
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
 
