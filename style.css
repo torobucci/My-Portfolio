@@ -269,16 +269,6 @@ header a {
   align-items: center;
 }
 
-.frame43-right-block {
-  margin-top: 160px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start;
-  padding: 8px 16px;
-}
-
 .see-project-btn1 {
   width: 100%;
   font-family: "Inter", serif;
@@ -315,9 +305,9 @@ header a {
 
 .cw {
   max-width: 400px;
+  height: 350px;
   position: relative;
   background-repeat: no-repeat;
-  background-size: cover;
   width: 90%;
   border-radius: 0.5rem;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.37);
@@ -332,11 +322,6 @@ header a {
 
 .cw:hover .card-overlay {
   height: 100%;
-}
-
-.cw:hover .frame43-right-block {
-  visibility: hidden;
-  cursor: grab;
 }
 
 .title-post1 {

@@ -23,51 +23,51 @@ const projects = [
     name: 'Space Travellers',
     description:
       'Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.',
-    'featured image': "url('./images-desktop/spacetravellers.jpg')",
+    'featured image': './images-desktop/spacetravellers.jpg',
     technologies: ['react', 'bootstrap', 'apis'],
   },
   {
     name: 'Budget Buddy',
     description:
       'Budget_App is a ruby on rails application that allow users to budget their money effectively. It utilizes devise gem for proper user authentication. User can add a category and see expenses on that category.',
-    'featured image': "url('./images-desktop/budget1.jpg')",
+    'featured image': "./images-desktop/budget1.jpg",
     technologies: ['ruby', 'rails', 'devise', 'postgresql'],
   },
   {
     name: 'GlobalGroove Concert',
     description:
      'Global Groove Concert is a website project advertising a concert event by Global Groove. Its displays the main program events, featured artists and info about the organization',
-    'featured image': "url('./images-desktop/concert.jpg')",
+    'featured image': "./images-desktop/concert.jpg",
     technologies: ['html5', 'css3', 'javascript'],
   },
   {
     name: 'Leaderboard',
     description:
       'Leaderboard is a project that display ThunderSlap game current rankings. It enables a new player to add their score and display current scores when the refresh button is clicked.',
-    'featured image': "url('./images-desktop/leaderboard.jpg')",
+    'featured image': "./images-desktop/leaderboard.jpg",
     technologies: ['html5', 'css3', 'javascript', 'APIs'],
   },
   {
     name: 'Math Magicians',
     description:
       'Math Magicians is a calculator web app built using React that allow users to perform basic math operations and display results. It has an added feature of displaying quotes fetched from an API.',
-    'featured image': "url('./images-desktop/math_magicians.jpg')",
+    'featured image': "./images-desktop/math_magicians.jpg",
     technologies: ['react', 'css3', 'APIs'],
   },
   {
     name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    'featured image': "url('./images-desktop/awesomeBooks.jpg')",
+    'featured image': "./images-desktop/awesomeBooks.jpg",
     technologies: ['html5', 'javascript', 'css3'],
   },
 ];
 const grid1 = document.querySelector('.grid-container1');
 for (let i = 0; i < projects.length; i += 1) {
   const cardwork = document.createElement('div');
+  cardwork.style.backgroundImage = `url(${projects[i]['featured image']}`
+  cardwork.style.backgroundSize = '100% 100%'
   cardwork.className = 'cw';
-  cardwork.style.backgroundImage = `linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%),${
-    projects[i]['featured image']}`;
   grid1.appendChild(cardwork);
 
   const cardOverlay = document.createElement('div');
@@ -78,28 +78,6 @@ for (let i = 0; i < projects.length; i += 1) {
   button.type = 'button';
   cardOverlay.appendChild(button);
   cardwork.appendChild(cardOverlay);
-
-  const frame43 = document.createElement('div');
-  frame43.className = 'frame43-right-block flex';
-  cardwork.appendChild(frame43);
-  const h2 = document.createElement('h2');
-  h2.className = 'title-post1';
-  h2.textContent = projects[i].name;
-  frame43.appendChild(h2);
-  const p = document.createElement('p');
-  p.className = 'supporting-text2';
-  p.textContent = projects[i].description;
-  frame43.appendChild(p);
-  const ul = document.createElement('ul');
-  ul.className = 'tags flex';
-  frame43.appendChild(ul);
-
-  for (let j = 0; j < projects[i].technologies.length; j += 1) {
-    const li = document.createElement('li');
-    li.textContent = projects[i].technologies[j];
-    li.className = 'btn btn-outline-secondary tags-btn';
-    ul.appendChild(li);
-  }
 }
 
 /* POP UP WINDOW */
