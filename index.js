@@ -30,43 +30,43 @@ const projects = [
     name: 'Budget Buddy',
     description:
       'Budget_App is a ruby on rails application that allow users to budget their money effectively. It utilizes devise gem for proper user authentication. User can add a category and see expenses on that category.',
-    'featured image': "./images-desktop/budget1.jpg",
+    'featured image': './images-desktop/budget1.jpg',
     technologies: ['ruby', 'rails', 'devise', 'postgresql'],
   },
   {
     name: 'GlobalGroove Concert',
     description:
      'Global Groove Concert is a website project advertising a concert event by Global Groove. Its displays the main program events, featured artists and info about the organization',
-    'featured image': "./images-desktop/concert.jpg",
+    'featured image': './images-desktop/concert.jpg',
     technologies: ['html5', 'css3', 'javascript'],
   },
   {
     name: 'Leaderboard',
     description:
       'Leaderboard is a project that display ThunderSlap game current rankings. It enables a new player to add their score and display current scores when the refresh button is clicked.',
-    'featured image': "./images-desktop/leaderboard.jpg",
+    'featured image': './images-desktop/leaderboard.jpg',
     technologies: ['html5', 'css3', 'javascript', 'APIs'],
   },
   {
     name: 'Math Magicians',
     description:
       'Math Magicians is a calculator web app built using React that allow users to perform basic math operations and display results. It has an added feature of displaying quotes fetched from an API.',
-    'featured image': "./images-desktop/math_magicians.jpg",
+    'featured image': './images-desktop/math_magicians.jpg',
     technologies: ['react', 'css3', 'APIs'],
   },
   {
     name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    'featured image': "./images-desktop/awesomeBooks.jpg",
+    'featured image': './images-desktop/awesomeBooks.jpg',
     technologies: ['html5', 'javascript', 'css3'],
   },
 ];
 const grid1 = document.querySelector('.grid-container1');
 for (let i = 0; i < projects.length; i += 1) {
   const cardwork = document.createElement('div');
-  cardwork.style.backgroundImage = `url(${projects[i]['featured image']}`
-  cardwork.style.backgroundSize = '100% 100%'
+  cardwork.style.backgroundImage = `url(${projects[i]['featured image']}`;
+  cardwork.style.backgroundSize = '100% 100%';
   cardwork.className = 'cw';
   grid1.appendChild(cardwork);
 

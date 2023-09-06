@@ -54,9 +54,6 @@ header a {
   font-size: 1.2rem;
   line-height: 24px;
   color: #fff;
-}
-
-header a {
   text-decoration: none;
   padding-bottom: 3px;
   position: relative;
@@ -205,6 +202,19 @@ header a:hover::before {
 
   /* Adding the box shadow */
   transition: transform 1s;
+}
+
+.profile-details img {
+  width: 190px;
+  height: 180px;
+  border-radius: 5px;
+}
+
+.profile-photo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .featured-img img:hover {
@@ -510,7 +520,7 @@ button :enabled {
   color: #fff;
 }
 
-:not(.btn-check)+.btn:active {
+:not(.btn-check) + .btn:active {
   background: #e05304;
   color: #fff;
 }
@@ -985,17 +995,18 @@ small {
     row-gap: 40px;
   }
 
-  .grid-container1>div:nth-child(1n) {
+  .grid-container1 > div:nth-child(1n) {
     width: 100%;
   }
 
-  .grid-container1>div:nth-child(3n) {
+  .grid-container1 > div:nth-child(3n) {
     justify-self: start;
     width: 100%;
   }
 }
 
 .profile {
+  margin-bottom: 0.4rem;
   display: flex;
   column-gap: 0.8rem;
   align-items: center;
@@ -1011,7 +1022,7 @@ small {
   height: 40px;
   width: 40px;
   border-radius: 100%;
-  background: #FFFFFF;
+  background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -1075,39 +1086,71 @@ small {
   }
 }
 
-.profile-photo img {
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
-}
-
-.profile-photo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 .profile-details {
   display: none;
   position: absolute;
   top: 100%;
   left: 8%;
   transform: translateX(8%);
-  background-color:#848585;
+  background-color: rgb(37, 36, 36);
+  color: #cccbcb;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  width: max-content;
 }
 
 .profile-photo:hover .profile-details {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem 0.5rem;
 }
 
-.profile-details img{
-  width: 200px;
-  height: 180px;
-  border-radius: 5px;
+.hobbies {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
 }
 
+.fa-square-js {
+  color: #f0db4f;
+}
+
+.fa-bootstrap {
+  color: #007bff;
+}
+
+.fa-react,
+.fa-code {
+  color: #61dafb;
+}
+
+.fa-gem {
+  color: #cc342d;
+}
+
+.fa-square-js,
+.fa-react,
+.fa-bootstrap,
+.fa-gem {
+  font-size: 1.3rem;
+}
+
+.fa-star,
+.fa-star-half-stroke {
+  color: gold;
+  font-size: 0.8rem;
+}
+
+.fa-chess {
+  color: #8a4c20;
+}
+
+.fa-person-swimming {
+  color: #007bff;
+}
+
+.fa-futbol {
+  color: #000;
+}
