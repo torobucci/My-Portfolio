@@ -204,13 +204,7 @@ header a:hover::before {
   transition: transform 1s;
 }
 
-.profile-details img {
-  width: 190px;
-  height: 180px;
-  border-radius: 5px;
-}
-
-.profile-photo img {
+.profile-photo-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -1024,6 +1018,12 @@ small {
   border-radius: 100%;
   background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.profile-details-img {
+  width: 190px;
+  height: 180px;
+  border-radius: 5px;
 }
 
 .profile-photo::after {
