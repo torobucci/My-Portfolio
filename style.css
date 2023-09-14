@@ -830,7 +830,7 @@ small {
 
   .social-media {
     position: absolute;
-    left: 0;
+    left: -5.5rem;
     top: 31.5%;
   }
 
@@ -1153,4 +1153,20 @@ small {
 
 .fa-futbol {
   color: #000;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease-in-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn.get-my-resume.reveal {
+  color: #fff;
+  background-color: #ff6b00;
 }

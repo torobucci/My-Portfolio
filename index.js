@@ -274,3 +274,24 @@ if (!localStorage.getItem('Form Data')) {
 } else {
   refillValue();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.reveal');
+
+  function checkElements() {
+    elements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (elementTop < windowHeight * 0.75) {
+        element.classList.add('active');
+      } else {
+        element.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkElements);
+
+  checkElements();
+});
