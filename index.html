@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Torobucci's Portfolio</title>
+
     <script src="https://kit.fontawesome.com/198fcc7e17.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="body">
+<body class="body" data-spy="scroll" data-target="#navbar" data-offset="70">
     <header class="main-header flex fixed">
         <div class="profile">
             <div class="profile-photo">
@@ -19,9 +21,9 @@
                 <div class="profile-details">
                     <img src="./images/torobucci.jpg" class="profile-details-img" alt="Kevin Toro">
                     <p>Expertise: <i class="fa-brands fa-square-js"></i>
-                         <i class="fa-brands fa-bootstrap"></i>
-                         <i class="fa-brands fa-react"></i>
-                         <i class="fa-regular fa-gem"></i>
+                        <i class="fa-brands fa-bootstrap"></i>
+                        <i class="fa-brands fa-react"></i>
+                        <i class="fa-regular fa-gem"></i>
                     </p>
                     <p>Level: <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -36,18 +38,20 @@
                         <i class="fa-solid fa-code"></i>
                     </p>
                     <!-- Add any other details here -->
-                  </div>
+                </div>
             </div>
-            <a href="#headline-section" id="header-a">Kevin Toro</a>
+            <a class="nav-link" href="#headline-section" id="header-a">Kevin Toro</a>
         </div>
 
-        <nav>
+        <nav id="navbar">
+            <!-- Your navigation content here -->
             <ul class="desktop-header-nav">
-                <li><a href="#work-section">Projects</a></li>
-                <li><a href="#about-me">About Me</a></li>
-                <li><a href="#form-section">Contact</a></li>
+                <li><a class="nav-link" href="#work-section">Projects</a></li>
+                <li><a class="nav-link" href="#about-me">About Me</a></li>
+                <li><a class="nav-link" href="#form-section">Contact</a></li>
             </ul>
         </nav>
+
         <i class="fa-solid fa-bars"></i>
     </header>
     <div class="menu-toggle">
@@ -69,9 +73,10 @@
                 </div>
                 <div class="description reveal">
                     <p>
-                        I'm here to  transform your ideas into reality.
+                        I'm here to transform your ideas into reality.
                         Browse through my portfolio to explore my work.
-                        If you're intrigued and have a project in need of coding, let's connect. Your vision deserves to be brought to life.
+                        If you're intrigued and have a project in need of coding, let's connect. Your vision deserves to
+                        be brought to life.
                     </p>
                 </div>
                 <div class="social-media flex">
@@ -92,7 +97,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:kevintoro254@gmail.com?subject=Subject%20Here&body=Message%20Here" target="_blank">
+                            <a href="mailto:kevintoro254@gmail.com?subject=Subject%20Here&body=Message%20Here"
+                                target="_blank">
                                 <i class="fa-solid fa-envelope fa-beat"></i>
                             </a>
                         </li>
@@ -109,8 +115,10 @@
                 <div class="right-block flex">
                     <h2 class="title-post">BookFlix Application</h2>
                     <p class="supporting-text1">
-                        BookFlix is a web applications that allow users to book reservations for movies cast in a cinema.
-                        User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations. Admins can add or delete movies.
+                        BookFlix is a web applications that allow users to book reservations for movies cast in a
+                        cinema.
+                        User can see details of a movie and reserve from it. Moreover user can also see lists of their
+                        reservations. Admins can add or delete movies.
                     </p>
                     <nav>
                         <ul class="tags flex">
@@ -131,28 +139,37 @@
             <div class="about-me-div flex reveal">
                 <h2 class="reveal">About me</h2>
                 <p class="reveal">
-                    Hello Again! I'm Kevin Toroitich, affectionately known as Toro. My love for playing chess isn't just about the game; it's about embracing the intricate dance of critical thinking and strategic planning that orchestrates victory. The similarity between chess and coding became vivid during my pursuit of a computer science degree and this ignited my passion for software development. This realization prompted me to dive headfirst into the world of software development and I landed on the doorstep of Microverse, a Bootcamp that became a crucible for refining my skills. Over the course of more than 20 collaborative projects, I honed my expertise, expanding my knowledge across an array of languages, frameworks, and tools shown below. As my software journey continues, I remain steadfast in my commitment to improvement through new challenges.
+                    Hello Again! I'm Kevin Toroitich, affectionately known as Toro. My love for playing chess isn't just
+                    about the game; it's about embracing the intricate dance of critical thinking and strategic planning
+                    that orchestrates victory. The similarity between chess and coding became vivid during my pursuit of
+                    a computer science degree and this ignited my passion for software development. This realization
+                    prompted me to dive headfirst into the world of software development and I landed on the doorstep of
+                    Microverse, a Bootcamp that became a crucible for refining my skills. Over the course of more than
+                    20 collaborative projects, I honed my expertise, expanding my knowledge across an array of
+                    languages, frameworks, and tools shown below. As my software journey continues, I remain steadfast
+                    in my commitment to improvement through new challenges.
                 </p>
-                <a href="./Resume - Kevin Toro.pdf" target="_blank" download="Resume - Kevin Toro.pdf" class="btn get-my-resume reveal">
+                <a href="./Resume - Kevin Toro.pdf" target="_blank" download="Resume - Kevin Toro.pdf"
+                    class="btn get-my-resume reveal">
                     Get My Resume
                 </a>
             </div>
             <div class="divider reveal"></div>
             <div class="skill flex reveal">
-                <ul>
+                <ul class="slide-left reveal">
                     <li class="topic">Language</li>
                     <li>Javascript</li>
                     <li>Ruby</li>
                     <li>Html</li>
                     <li>Css</li>
                 </ul>
-                <ul>
+                <ul class="slide-bottom reveal">
                     <li class="topic1">Frameworks</li>
                     <li>Bootstrap</li>
                     <li>React</li>
                     <li>Ruby On Rails</li>
                 </ul>
-                <ul>
+                <ul class="slide-right reveal">
                     <li class="topic2">Tools</li>
                     <li>Git</li>
                     <li>Github</li>
@@ -207,7 +224,9 @@
         </footer>
 
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="index.js"></script>
 </body>
 

@@ -47,7 +47,7 @@ header {
   padding: 0.5rem 1rem;
 }
 
-header a {
+.nav-link {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -59,7 +59,11 @@ header a {
   position: relative;
 }
 
-header a::before {
+.nav-link:hover{
+   color: #fff;
+}
+
+.nav-link::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -67,10 +71,14 @@ header a::before {
   width: 0;
   height: 2px;
   background-color: #ff6b00;
-  transition: width 0.3s ease-in-out;
+  transition: width 1.2s ease-in-out;
 }
 
-header a:hover::before {
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link.active::before{
   width: 100%;
 }
 
@@ -1162,6 +1170,29 @@ small {
 }
 
 .reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from the left */
+.slide-left.reveal {
+  transform: translateX(-60px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+/* Slide in from the bottom */
+.slide-bottom.reveal {
+  transform: translateY(60px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+/* Slide in from the right */
+.slide-right.reveal {
+  transform: translateX(120%);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+.slide-left.reveal.active,.slide-right.reveal.active,.slide-bottom.reveal.active{
   opacity: 1;
   transform: translateY(0);
 }
