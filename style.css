@@ -712,6 +712,9 @@ footer {
 .popup-content {
   margin: 26px 24px 20px 24px;
   height: 24em;
+  display: flex;
+  flex-direction:column;
+  gap: 1.25rem;
 }
 
 #snapshot-portfolio {
@@ -795,6 +798,147 @@ footer {
 
 small {
   color: red;
+}
+
+.profile-details {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 8%;
+  transform: translateX(8%);
+  background-color: rgb(37, 36, 36);
+  color: #cccbcb;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: max-content;
+}
+
+.profile-photo:hover .profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem 0.5rem;
+}
+
+.hobbies {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.fa-square-js {
+  color: #f0db4f;
+}
+
+.fa-bootstrap {
+  color: #007bff;
+}
+
+.fa-react,
+.fa-code {
+  color: #61dafb;
+}
+
+.fa-gem {
+  color: #cc342d;
+}
+
+.fa-square-js,
+.fa-react,
+.fa-bootstrap,
+.fa-gem {
+  font-size: 1.3rem;
+}
+
+.fa-star,
+.fa-star-half-stroke {
+  color: gold;
+  font-size: 0.8rem;
+}
+
+.fa-chess {
+  color: #8a4c20;
+}
+
+.fa-person-swimming {
+  color: #007bff;
+}
+
+.fa-futbol {
+  color: #000;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease-in-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from the left */
+.slide-left.reveal {
+  transform: translateX(-100px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+/* Slide in from the bottom */
+.slide-bottom.reveal {
+  transform: translateY(45px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+/* Slide in from the right */
+.slide-right.reveal {
+  transform: translateX(100px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+.slide-left.reveal.active,.slide-right.reveal.active,.slide-bottom.reveal.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn.get-my-resume.reveal {
+  color: #fff;
+  background-color: #ff6b00;
+}
+
+swiper-container {
+  margin: 0 auto;
+  width: 100%;
+  height: 80%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.swiper-wrapper{
+  width: 60%
+}
+
+.swiper-button-next svg,
+.swiper-button-prev svg{
+   width: 50%;
+   height: 40%;
 }
 
 @media screen and (min-width: 886px) {
@@ -937,7 +1081,8 @@ small {
 
   .popup-content {
     display: flex;
-    column-gap: 24px;
+    flex-direction: row;
+    column-gap: 3rem;
   }
 
   .popup-window-content {
@@ -962,6 +1107,11 @@ small {
 
   .error {
     margin-left: 0;
+  }
+
+  swiper-container{
+    width: 50%;
+    height: 100%;
   }
 }
 
@@ -1095,110 +1245,3 @@ small {
   }
 }
 
-.profile-details {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 8%;
-  transform: translateX(8%);
-  background-color: rgb(37, 36, 36);
-  color: #cccbcb;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  width: max-content;
-}
-
-.profile-photo:hover .profile-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem 0.5rem;
-}
-
-.hobbies {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-}
-
-.fa-square-js {
-  color: #f0db4f;
-}
-
-.fa-bootstrap {
-  color: #007bff;
-}
-
-.fa-react,
-.fa-code {
-  color: #61dafb;
-}
-
-.fa-gem {
-  color: #cc342d;
-}
-
-.fa-square-js,
-.fa-react,
-.fa-bootstrap,
-.fa-gem {
-  font-size: 1.3rem;
-}
-
-.fa-star,
-.fa-star-half-stroke {
-  color: gold;
-  font-size: 0.8rem;
-}
-
-.fa-chess {
-  color: #8a4c20;
-}
-
-.fa-person-swimming {
-  color: #007bff;
-}
-
-.fa-futbol {
-  color: #000;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.5s ease, transform 1.5s ease-in-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Slide in from the left */
-.slide-left.reveal {
-  transform: translateX(-100px);
-  transition: opacity 1.5s ease, transform 1s ease-in-out;
-}
-
-/* Slide in from the bottom */
-.slide-bottom.reveal {
-  transform: translateY(45px);
-  transition: opacity 1.5s ease, transform 1s ease-in-out;
-}
-
-/* Slide in from the right */
-.slide-right.reveal {
-  transform: translateX(100px);
-  transition: opacity 1.5s ease, transform 1s ease-in-out;
-}
-
-.slide-left.reveal.active,.slide-right.reveal.active,.slide-bottom.reveal.active{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.btn.get-my-resume.reveal {
-  color: #fff;
-  background-color: #ff6b00;
-}

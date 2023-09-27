@@ -188,9 +188,18 @@ seeProject.forEach((el, i) => {
           </ul>
       </div>
       <div class="popup-content">
-          <img id="snapshot-portfolio" src=${
-  projects2[i]['featured image']
-} alt="Snapshoot Portfolio">
+      <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+      centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+    </swiper-container>
           <div class="popup-content-text flex">
               <p>${projects2[i].description}</p>
 
@@ -294,4 +303,16 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', checkElements);
 
   checkElements();
+});
+
+var mySwiper = new Swiper('.mySwiper', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  autoplay: {
+    delay: 2000, // Time between slides in milliseconds (adjust as needed)
+    disableOnInteraction: false, // Autoplay continues after user interaction
+  },
+  loop: true, // Enable looping for continuous scrolling
 });
