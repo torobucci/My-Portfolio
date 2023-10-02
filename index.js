@@ -94,8 +94,8 @@ const projects2 = [
   {
     name: 'BookFlix Application',
     description:
-      'BookFlix is a web applications that allow users to book reservations for movies cast in a cinema. User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations. Admins can add or delete movies.',
-    'featured image': './images-desktop/bookflix.jpg',
+      'BookFlix is a web applications that allow users to book reservations for movies cast in a cinema. User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations.',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['react', 'bootstrap', 'ruby', 'ruby on rails'],
     'link to live version': 'https://book-flix-frontend.vercel.app/',
     'link to source': 'https://github.com/torobucci/BookFlix-Backend',
@@ -103,7 +103,7 @@ const projects2 = [
   {
     name: 'Space Travelers',
     description: 'Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.',
-    'featured image': './images-desktop/spacetravellers1.jpg',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['react', 'redux', 'bootstrap5', 'apis'],
     'link to live version': 'https://space-travelers-hib.onrender.com/',
     'link to source': 'https://github.com/torobucci/space-travelers',
@@ -112,7 +112,7 @@ const projects2 = [
     name: 'Budget Buddy',
     description:
     'Budget_App is a ruby on rails application that allow users to budget their money effectively. It utilizes devise gem for proper user authentication. User can add a category and see expenses on that category',
-    'featured image': './images-desktop/budget.jpg',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['ruby', 'rails', 'devise', 'postgresql'],
     'link to live version': 'https://budgetbuddy-xwce.onrender.com/',
     'link to source': 'https://github.com/torobucci/Budget_app',
@@ -121,7 +121,7 @@ const projects2 = [
     name: 'GlobalGroove Concert',
     description:
       'Global Groove Concert is a website project advertising a concert event by Global Groove. Its displays the main program events, featured artists and info about the organization',
-    'featured image': './images-desktop/concert1.jpg',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['html5', 'css3', 'javascript'],
     'link to live version':
       'https://torobucci.github.io/GlobalGroove-Concert/',
@@ -132,7 +132,7 @@ const projects2 = [
     name: 'Leaderboard',
     description:
       'Leaderboard is a project that display ThunderSlap game current rankings. It enables a new player to add their score and display current scores when the refresh button is clicked.',
-    'featured image': './images-desktop/leaderboard1.jpg',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['html5', 'css3', 'javascript', 'APIs'],
     'link to live version':
       'https://torobucci.github.io/Leaderboard/dist/',
@@ -143,7 +143,7 @@ const projects2 = [
     name: 'Math Magicians',
     description:
       'Math Magicians is a calculator web app built using React that allow users to perform basic math operations and display results. It has an added feature of displaying quotes fetched from an API.',
-    'featured image': './images-desktop/math_magicians1.jpg',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['react', 'css3', 'APIs'],
     'link to live version':
       'https://math-magicians-ga6o.onrender.com/',
@@ -154,7 +154,7 @@ const projects2 = [
     name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    'featured image': './images-desktop/awesomeBooks1.jpg',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['html', 'javascript', 'css3'],
     'link to live version':
       'https://torobucci.github.io/Awesomebooks-Modules/',
@@ -165,7 +165,7 @@ const projects2 = [
     name: 'Website Protfolio',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works2.png',
+    'featured images': ['./images-desktop/bookflix.jpg', './images-desktop/spacetravellers1.jpg' ],
     technologies: ['html-tag', 'bootstrap-tag', 'ruby-tag'],
     'link to live version':
       'https://torobucci.github.io/Portfolio-finish-mobile-version/',
@@ -188,17 +188,9 @@ seeProject.forEach((el, i) => {
           </ul>
       </div>
       <div class="popup-content">
-      <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
-      centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
-      <swiper-slide><img src="./images/torobucci.jpg"/></swiper-slide>
+    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+      centered-slides="true" autoplay-delay="3000" autoplay-disable-on-interaction="false">
+      ${projects2[i]['featured images'].map((imageSrc)=> `<swiper-slide><img src=${imageSrc} /></swiper-slide>`)}
     </swiper-container>
           <div class="popup-content-text flex">
               <p>${projects2[i].description}</p>
