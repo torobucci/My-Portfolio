@@ -176,43 +176,45 @@ const projects2 = [
 const seeProject = document.querySelectorAll('.see-project-btn1');
 seeProject.forEach((el, i) => {
   const popupWindow = elementFromHtml(`<div class="popup-window">
+  <div class="popup-window-content-container">
   <div class="popup-window-content">
-      <div class="top-content">
-          <div class="top-content-text flex">
-              <h2>${projects2[i].name}</h2>
-              <i class="fa-regular fa-x"></i>
-          </div>
-          <ul class="top-content-tag flex tags">
-           ${projects2[i].technologies
-    .map((tech) => `<li class='btn btn-secondary tags-btn'>${tech}</li>`).join('')}
-          </ul>
+  <div class="top-content">
+      <div class="top-content-text flex">
+          <h2>${projects2[i].name}</h2>
+          <i class="fa-regular fa-x"></i>
       </div>
-      <div class="popup-content">
-    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
-      centered-slides="true" autoplay-delay="3000" autoplay-disable-on-interaction="false">
-      ${projects2[i]['featured images'].map((imageSrc)=> `<swiper-slide><img src=${imageSrc} /></swiper-slide>`)}
-    </swiper-container>
-          <div class="popup-content-text flex">
-              <p>${projects2[i].description}</p>
+      <ul class="top-content-tag flex tags">
+       ${projects2[i].technologies
+.map((tech) => `<li class='btn btn-secondary tags-btn'>${tech}</li>`).join('')}
+      </ul>
+  </div>
+  <div class="popup-content">
+<swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+  centered-slides="true" autoplay-delay="3000" autoplay-disable-on-interaction="false">
+  ${projects2[i]['featured images'].map((imageSrc)=> `<swiper-slide><img src=${imageSrc} /></swiper-slide>`)}
+</swiper-container>
+      <div class="popup-content-text flex">
+          <p>${projects2[i].description}</p>
 
-              <div class="popup-content-text-btn flex">
-                  <button type="button" class="pop-btn btn flex"><a
-                          target="_blank"
-                          href=${
-  projects2[i]['link to live version']
+          <div class="popup-content-text-btn flex">
+              <button type="button" class="pop-btn btn flex"><a
+                      target="_blank"
+                      href=${
+projects2[i]['link to live version']
 }>See live</a><img
-                          src="./images-desktop/Icon-see live.svg" alt=""></button>
-                  <button type="button" class="pop-btn btn flex"><a
-                          target="_blank"
-                          href=${
-  projects2[i]['link to source']
+                      src="./images-desktop/Icon-see live.svg" alt=""></button>
+              <button type="button" class="pop-btn btn flex"><a
+                      target="_blank"
+                      href=${
+projects2[i]['link to source']
 }>See source</a><img
-                          src="./images-desktop/Icon-see-source.svg" alt=""></button>
+                      src="./images-desktop/Icon-see-source.svg" alt=""></button>
 
-              </div>
           </div>
-
       </div>
+
+  </div>
+</div>
   </div>
   </div>`);
 

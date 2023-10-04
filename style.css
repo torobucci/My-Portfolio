@@ -47,6 +47,23 @@ header {
   padding: 0.5rem 1rem;
 }
 
+
+::-webkit-scrollbar {
+  width: 8px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee; /* Color of the track */
+  max-height: 60%;
+}
+
+
 .nav-link {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -103,15 +120,21 @@ header {
 
 .fa-x {
   position: absolute;
-  top: -10px;
-  right: -4px;
-  font-size: 1rem;
+  top: -0.8125rem;
+  right: -0.78rem;
+  font-size: 0.7rem;
   cursor: pointer;
   z-index: 3;
-  background:#3c3a39;
+  background-color:#3c3a39;
   color: #fff;
-  padding: 0.8rem;
+  padding: 0.5rem 0.55rem;
   border-radius: 50%;
+  transition: color 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+.fa-x:hover{
+   background: #adacab;
+   color: #000;
 }
 
 .fa-beat {
@@ -667,17 +690,21 @@ footer {
   display: none;
 }
 
-.popup-window-content {
+.popup-window-content-container {
   width: 90%;
-  height:80%;
+  height:83%;
   background-color: white;
-  overflow: visible;
   border-radius: 0.4rem;
   position: relative;
   margin: auto;
   top: 53%;
   transform: translateY(-50%);
   padding-bottom: 3rem;
+}
+
+.popup-window-content{
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .show {
@@ -1090,12 +1117,16 @@ swiper-slide img {
     column-gap: 3rem;
   }
 
-  .popup-window-content {
+  .popup-window-content-container {
     width: 90%;
     height: 85%;
     top: 54%;
     margin: auto;
     background-color: white;
+  }
+
+  .popup-window-content{
+    overflow-y: unset;
   }
 
   .popup-window-content::-webkit-scrollbar {
