@@ -94,8 +94,8 @@ const projects2 = [
   {
     name: 'BookFlix Application',
     description:
-      'BookFlix is a web applications that allow users to book reservations for movies cast in a cinema. User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations. Admins can add or delete movies.',
-    'featured image': './images-desktop/bookflix.jpg',
+      'BookFlix is a web applications that allow users to book reservations for movies cast in a cinema. User can see details of a movie and reserve from it. Moreover user can also see lists of their reservations.',
+    'featured images': ['./images-desktop/bookflix1.jpg', './images-desktop/bookflix2.jpg', './images-desktop/bookflix3.jpg', './images-desktop/bookflix4.jpg', './images-desktop/bookflix5.jpg'],
     technologies: ['react', 'bootstrap', 'ruby', 'ruby on rails'],
     'link to live version': 'https://book-flix-frontend.vercel.app/',
     'link to source': 'https://github.com/torobucci/BookFlix-Backend',
@@ -103,7 +103,7 @@ const projects2 = [
   {
     name: 'Space Travelers',
     description: 'Space Travelers is a SPA that uses SpaceX live API to display available rockets and missions. It also enables a user to reserve/cancel a rocket and join/leave a mission and display them on their profile.',
-    'featured image': './images-desktop/spacetravellers1.jpg',
+    'featured images': ['./images-desktop/spacetravellers1.jpg', './images-desktop/spacetravellers2.jpg', './images-desktop/spacetravellers3.jpg'],
     technologies: ['react', 'redux', 'bootstrap5', 'apis'],
     'link to live version': 'https://space-travelers-hib.onrender.com/',
     'link to source': 'https://github.com/torobucci/space-travelers',
@@ -112,7 +112,7 @@ const projects2 = [
     name: 'Budget Buddy',
     description:
     'Budget_App is a ruby on rails application that allow users to budget their money effectively. It utilizes devise gem for proper user authentication. User can add a category and see expenses on that category',
-    'featured image': './images-desktop/budget.jpg',
+    'featured images': ['./images-desktop/budget.jpg'],
     technologies: ['ruby', 'rails', 'devise', 'postgresql'],
     'link to live version': 'https://budgetbuddy-xwce.onrender.com/',
     'link to source': 'https://github.com/torobucci/Budget_app',
@@ -121,7 +121,7 @@ const projects2 = [
     name: 'GlobalGroove Concert',
     description:
       'Global Groove Concert is a website project advertising a concert event by Global Groove. Its displays the main program events, featured artists and info about the organization',
-    'featured image': './images-desktop/concert1.jpg',
+    'featured images': ['./images-desktop/concert2.jpg', './images-desktop/concert3.jpg', './images-desktop/concert4.jpg', './images-desktop/concert5.jpg'],
     technologies: ['html5', 'css3', 'javascript'],
     'link to live version':
       'https://torobucci.github.io/GlobalGroove-Concert/',
@@ -132,7 +132,7 @@ const projects2 = [
     name: 'Leaderboard',
     description:
       'Leaderboard is a project that display ThunderSlap game current rankings. It enables a new player to add their score and display current scores when the refresh button is clicked.',
-    'featured image': './images-desktop/leaderboard1.jpg',
+    'featured images': ['./images-desktop/leaderboard1.jpg'],
     technologies: ['html5', 'css3', 'javascript', 'APIs'],
     'link to live version':
       'https://torobucci.github.io/Leaderboard/dist/',
@@ -143,7 +143,7 @@ const projects2 = [
     name: 'Math Magicians',
     description:
       'Math Magicians is a calculator web app built using React that allow users to perform basic math operations and display results. It has an added feature of displaying quotes fetched from an API.',
-    'featured image': './images-desktop/math_magicians1.jpg',
+    'featured images': ['./images-desktop/math_magicians2.jpg', './images-desktop/math_magicians1.jpg', './images-desktop/math_magicians3.jpg'],
     technologies: ['react', 'css3', 'APIs'],
     'link to live version':
       'https://math-magicians-ga6o.onrender.com/',
@@ -154,64 +154,56 @@ const projects2 = [
     name: 'Awesome Books',
     description:
       'Awesome book is a mid Fidelity wireframe, single page app that enables a user to add and remove a book from his/her collection. It implements the use of modules to make code simple',
-    'featured image': './images-desktop/awesomeBooks1.jpg',
+    'featured images': ['./images-desktop/awesomebooks1.jpg', './images-desktop/awesomebooks2.jpg', './images-desktop/awesomebooks3.jpg'],
     technologies: ['html', 'javascript', 'css3'],
     'link to live version':
       'https://torobucci.github.io/Awesomebooks-Modules/',
     'link to source':
       'https://github.com/torobucci/Awesomebooks-Modules',
   },
-  {
-    name: 'Website Protfolio',
-    description:
-      'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industry"s standard',
-    'featured image': './images-desktop/card-works2.png',
-    technologies: ['html-tag', 'bootstrap-tag', 'ruby-tag'],
-    'link to live version':
-      'https://torobucci.github.io/Portfolio-finish-mobile-version/',
-    'link to source':
-      'https://github.com/torobucci/Portfolio-finish-mobile-version',
-  },
 ];
 const seeProject = document.querySelectorAll('.see-project-btn1');
 seeProject.forEach((el, i) => {
   const popupWindow = elementFromHtml(`<div class="popup-window">
+  <div class="popup-window-content-container">
   <div class="popup-window-content">
-      <div class="top-content">
-          <div class="top-content-text flex">
-              <h2>${projects2[i].name}</h2>
-              <i class="fa-regular fa-x"></i>
-          </div>
-          <ul class="top-content-tag flex tags">
-           ${projects2[i].technologies
-    .map((tech) => `<li class='btn btn-secondary tags-btn'>${tech}</li>`).join('')}
-          </ul>
+  <div class="top-content">
+      <div class="top-content-text flex">
+          <h2>${projects2[i].name}</h2>
+          <i class="fa-regular fa-x"></i>
       </div>
-      <div class="popup-content">
-          <img id="snapshot-portfolio" src=${
-  projects2[i]['featured image']
-} alt="Snapshoot Portfolio">
-          <div class="popup-content-text flex">
-              <p>${projects2[i].description}</p>
+      <ul class="top-content-tag flex tags">
+       ${projects2[i].technologies
+    .map((tech) => `<li class='btn btn-secondary tags-btn'>${tech}</li>`).join('')}
+      </ul>
+  </div>
+  <div class="popup-content">
+<swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+  centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+  ${projects2[i]['featured images'].map((imageSrc) => `<swiper-slide><img src=${imageSrc} /></swiper-slide>`)}
+</swiper-container>
+      <div class="popup-content-text flex">
+          <p>${projects2[i].description}</p>
 
-              <div class="popup-content-text-btn flex">
-                  <button type="button" class="pop-btn btn flex"><a
-                          target="_blank"
-                          href=${
+          <div class="popup-content-text-btn flex">
+              <button type="button" class="pop-btn btn flex"><a
+                      target="_blank"
+                      href=${
   projects2[i]['link to live version']
 }>See live</a><img
-                          src="./images-desktop/Icon-see live.svg" alt=""></button>
-                  <button type="button" class="pop-btn btn flex"><a
-                          target="_blank"
-                          href=${
+                      src="./images-desktop/Icon-see live.svg" alt=""></button>
+              <button type="button" class="pop-btn btn flex"><a
+                      target="_blank"
+                      href=${
   projects2[i]['link to source']
 }>See source</a><img
-                          src="./images-desktop/Icon-see-source.svg" alt=""></button>
+                      src="./images-desktop/Icon-see-source.svg" alt=""></button>
 
-              </div>
           </div>
-
       </div>
+
+  </div>
+</div>
   </div>
   </div>`);
 
@@ -227,6 +219,25 @@ seeProject.forEach((el, i) => {
         bodycontent.classList.toggle('body-overflow');
       }
     });
+
+    // Get the element with the shadow DOM
+    const hostElement = document.querySelector('.mySwiper');
+
+    // Access the shadow DOM
+    const shadow = hostElement.shadowRoot;
+
+    // Style the next and previous buttons
+    const nextButton = shadow.querySelector('.swiper-button-next');
+    const prevButton = shadow.querySelector('.swiper-button-prev');
+
+    // Apply styles
+    nextButton.style.position = 'absolute';
+    nextButton.style.right = '-5px';
+    nextButton.style.height = '2rem';
+
+    prevButton.style.position = 'absolute';
+    prevButton.style.left = '-5px';
+    prevButton.style.height = '2rem';
   });
 });
 
@@ -274,3 +285,24 @@ if (!localStorage.getItem('Form Data')) {
 } else {
   refillValue();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.reveal');
+
+  function checkElements() {
+    elements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (elementTop < windowHeight * 0.75) {
+        element.classList.add('active');
+      } else {
+        element.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkElements);
+
+  checkElements();
+});

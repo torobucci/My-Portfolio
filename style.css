@@ -47,7 +47,25 @@ header {
   padding: 0.5rem 1rem;
 }
 
-header a {
+.popup-window-content {
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.popup-window-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-window-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100vh;
+}
+
+.popup-window-content::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+.nav-link {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -59,7 +77,11 @@ header a {
   position: relative;
 }
 
-header a::before {
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -67,10 +89,14 @@ header a::before {
   width: 0;
   height: 2px;
   background-color: #ff6b00;
-  transition: width 0.3s ease-in-out;
+  transition: width 1s ease-in-out;
 }
 
-header a:hover::before {
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link.active::before {
   width: 100%;
 }
 
@@ -95,10 +121,21 @@ header a:hover::before {
 
 .fa-x {
   position: absolute;
-  top: 16px;
-  right: 18px;
-  font-size: 1.2rem;
+  top: -0.8125rem;
+  right: -0.78rem;
+  font-size: 0.7rem;
   cursor: pointer;
+  z-index: 3;
+  background-color: #3c3a39;
+  color: #fff;
+  padding: 0.5rem 0.55rem;
+  border-radius: 50%;
+  transition: color 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+.fa-x:hover {
+  background: #adacab;
+  color: #000;
 }
 
 .fa-beat {
@@ -192,6 +229,35 @@ header a:hover::before {
   padding: 0 24px;
   gap: 24px;
   margin-bottom: 60px;
+}
+
+.mySwiper {
+  margin: 0 auto;
+  width: 100%;
+  height: 80%;
+}
+
+.swiper-slide-active,
+.swiper-slide-prev {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.swiper-slide-active img,
+.swiper-slide-prev img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.swiper-wrapper {
+  width: 60%;
 }
 
 #snapshot-portfolio,
@@ -654,15 +720,14 @@ footer {
   display: none;
 }
 
-.popup-window-content {
+.popup-window-content-container {
   width: 90%;
-  height: 90%;
+  height: 83%;
   background-color: white;
-  overflow-y: auto;
   border-radius: 0.4rem;
   position: relative;
   margin: auto;
-  top: 54%;
+  top: 53%;
   transform: translateY(-50%);
   padding-bottom: 3rem;
 }
@@ -704,6 +769,9 @@ footer {
 .popup-content {
   margin: 26px 24px 20px 24px;
   height: 24em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 #snapshot-portfolio {
@@ -789,6 +857,116 @@ small {
   color: red;
 }
 
+.profile-details {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 8%;
+  transform: translateX(8%);
+  background-color: rgb(37, 36, 36);
+  color: #cccbcb;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: max-content;
+}
+
+.profile-photo:hover .profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem 0.5rem;
+}
+
+.hobbies {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.fa-square-js {
+  color: #f0db4f;
+}
+
+.fa-bootstrap {
+  color: #007bff;
+}
+
+.fa-react,
+.fa-code {
+  color: #61dafb;
+}
+
+.fa-gem {
+  color: #cc342d;
+}
+
+.fa-square-js,
+.fa-react,
+.fa-bootstrap,
+.fa-gem {
+  font-size: 1.3rem;
+}
+
+.fa-star,
+.fa-star-half-stroke {
+  color: gold;
+  font-size: 0.8rem;
+}
+
+.fa-chess {
+  color: #8a4c20;
+}
+
+.fa-person-swimming {
+  color: #007bff;
+}
+
+.fa-futbol {
+  color: #000;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease-in-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from the left */
+.slide-left.reveal {
+  transform: translateX(-100px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+/* Slide in from the bottom */
+.slide-bottom.reveal {
+  transform: translateY(45px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+/* Slide in from the right */
+.slide-right.reveal {
+  transform: translateX(100px);
+  transition: opacity 1.5s ease, transform 1s ease-in-out;
+}
+
+.slide-left.reveal.active,
+.slide-right.reveal.active,
+.slide-bottom.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn.get-my-resume.reveal {
+  color: #fff;
+  background-color: #ff6b00;
+}
+
 @media screen and (min-width: 886px) {
   .fa-bars {
     display: none;
@@ -830,7 +1008,7 @@ small {
 
   .social-media {
     position: absolute;
-    left: 0;
+    left: -5.5rem;
     top: 31.5%;
   }
 
@@ -929,14 +1107,20 @@ small {
 
   .popup-content {
     display: flex;
-    column-gap: 24px;
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .popup-window-content-container {
+    width: 90%;
+    height: 85%;
+    top: 54%;
+    margin: auto;
+    background-color: white;
   }
 
   .popup-window-content {
-    width: 90%;
-    height: 85%;
-    margin: auto;
-    background-color: white;
+    overflow-y: unset;
   }
 
   .popup-window-content::-webkit-scrollbar {
@@ -953,6 +1137,11 @@ small {
 
   .error {
     margin-left: 0;
+  }
+
+  .mySwiper {
+    width: 50%;
+    height: 100%;
   }
 }
 
@@ -1086,71 +1275,13 @@ small {
   }
 }
 
-.profile-details {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 8%;
-  transform: translateX(8%);
-  background-color: rgb(37, 36, 36);
-  color: #cccbcb;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  width: max-content;
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  position: absolute !important;
+  top: 50% !important;
+  height: 1.5rem !important;
 }
 
-.profile-photo:hover .profile-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem 0.5rem;
-}
-
-.hobbies {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-}
-
-.fa-square-js {
-  color: #f0db4f;
-}
-
-.fa-bootstrap {
-  color: #007bff;
-}
-
-.fa-react,
-.fa-code {
-  color: #61dafb;
-}
-
-.fa-gem {
-  color: #cc342d;
-}
-
-.fa-square-js,
-.fa-react,
-.fa-bootstrap,
-.fa-gem {
-  font-size: 1.3rem;
-}
-
-.fa-star,
-.fa-star-half-stroke {
-  color: gold;
-  font-size: 0.8rem;
-}
-
-.fa-chess {
-  color: #8a4c20;
-}
-
-.fa-person-swimming {
-  color: #007bff;
-}
-
-.fa-futbol {
-  color: #000;
+.mySwiper .swiper-button-next {
+  right: 0 !important;
 }
